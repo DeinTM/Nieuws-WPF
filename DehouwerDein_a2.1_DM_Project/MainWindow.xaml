@@ -67,9 +67,10 @@
                 </StackPanel>
                 <Button
     Style="{StaticResource MaterialDesignOutlinedButton}"
-    ToolTip="MaterialDesignOutlinedButton" Content="LEES MEER" Margin="8,0,174,16" Grid.Row="2"/>
+    ToolTip="MaterialDesignOutlinedButton" Content="LEES MEER" Margin="8,0,174,16" Grid.Row="2" Click="Button_Click"/>
+                
                 <materialDesign:PackIcon
-          Kind="Pencil" RenderTransformOrigin="0.29,-13.23" Margin="262,18,0,0" Height="28" Width="23" />
+          Kind="Pencil" RenderTransformOrigin="0.29,-13.23" Margin="262,18,0,0" Height="28" Width="23" MouseDoubleClick="PackIcon_MouseDoubleClick" />
                 <materialDesign:Chip Margin="241,90,0,18" Grid.Row="1" RenderTransformOrigin="1.552,0.581" Content="Tech" Grid.RowSpan="2"/>
             </Grid>
         </materialDesign:Card>

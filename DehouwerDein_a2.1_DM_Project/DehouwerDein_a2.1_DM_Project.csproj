@@ -86,6 +86,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ArtikelAanmaken.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ArtikelBewerken.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ArtikelWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GebruikersLijst.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,6 +109,18 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ArtikelAanmaken.xaml.cs">
+      <DependentUpon>ArtikelAanmaken.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ArtikelBewerken.xaml.cs">
+      <DependentUpon>ArtikelBewerken.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ArtikelWindow.xaml.cs">
+      <DependentUpon>ArtikelWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GebruikersLijst.xaml.cs">
+      <DependentUpon>GebruikersLijst.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

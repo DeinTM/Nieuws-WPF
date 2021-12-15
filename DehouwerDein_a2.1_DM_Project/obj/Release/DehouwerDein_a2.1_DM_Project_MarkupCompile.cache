@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\Users\DeinDehouwer\Desktop\project\DehouwerDein_a2.1_DM_Project\obj\Debug\
+C:\Users\DeinDehouwer\Desktop\project\DehouwerDein_a2.1_DM_Project\obj\Release\
 DehouwerDein_a2._1_DM_Project
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\DeinDehouwer\Desktop\project\DehouwerDein_a2.1_DM_Project\App.xaml
 51676963540
 
-11-421349448
+9-470273192
 28611459672
 ArtikelAanmaken.xaml;ArtikelBewerken.xaml;ArtikelWindow.xaml;GebruikersLijst.xaml;MainWindow.xaml;
 
