@@ -12,21 +12,27 @@
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
         Title="GebruikersLijst" Height="450" Width="800">
-    <Grid>
+    <Grid Width="auto">
         <ListView
             x:Name="lvGebruikers"
   ItemsSource="{Binding Items1}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn
-        DisplayMemberBinding="{Binding Code}"
-        Header="Code" />
+        DisplayMemberBinding="{Binding Avatar}"
+        Header="Avatar" Width="auto" />
                     <GridViewColumn
         DisplayMemberBinding="{Binding Name}"
-        Header="Name" />
+        Header="Naam" Width="auto" />
                     <GridViewColumn
-        DisplayMemberBinding="{Binding Description}"
-        Header="Description" />
+        DisplayMemberBinding="{Binding Email}"
+        Header="Email" Width="auto" />
+                    <GridViewColumn
+        DisplayMemberBinding="{Binding Abonnee}"
+        Header="Abonnee" Width="auto" />
+                    <GridViewColumn
+        DisplayMemberBinding="{Binding Homepage}"
+        Header="Homepage" Width="auto" />
                 </GridView>
             </ListView.View>
         </ListView>
