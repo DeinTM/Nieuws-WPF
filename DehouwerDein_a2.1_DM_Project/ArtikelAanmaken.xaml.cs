@@ -23,5 +23,15 @@ namespace DehouwerDein_a2._1_DM_Project
         {
             InitializeComponent();
         }
+
+        private void btnUpload_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnPost_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

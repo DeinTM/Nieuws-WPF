@@ -211,5 +211,16 @@
         </materialDesign:Card>
 
 
+        <Button
+            x:Name="btnNieuwArtikel"
+  Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+  ToolTip="MaterialDesignFloatingActionAccentButton" Grid.Column="1" Margin="331.2,331.4,9.6,-45.8" Grid.Row="2" Grid.RowSpan="2" Click="btnNieuwArtikel_Click">
+            <materialDesign:PackIcon
+    Kind="Plus"
+    Height="24"
+    Width="24" />
+        </Button>
+
+
     </Grid>
 </Window>

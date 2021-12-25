@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DehouwerDein_a2._1_DM_Project"
         mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
         Title="GebruikersLijst" Height="450" Width="800">
     <Grid>
-        
+        <ListView
+            x:Name="lvGebruikers"
+  ItemsSource="{Binding Items1}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn
+        DisplayMemberBinding="{Binding Code}"
+        Header="Code" />
+                    <GridViewColumn
+        DisplayMemberBinding="{Binding Name}"
+        Header="Name" />
+                    <GridViewColumn
+        DisplayMemberBinding="{Binding Description}"
+        Header="Description" />
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>

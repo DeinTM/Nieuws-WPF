@@ -41,5 +41,11 @@ namespace DehouwerDein_a2._1_DM_Project
             ArtikelWindow artikelWindow = new ArtikelWindow();
             artikelWindow.ShowDialog();
         }
+
+        private void btnNieuwArtikel_Click(object sender, RoutedEventArgs e)
+        {
+            ArtikelAanmaken artikelAanmaken = new ArtikelAanmaken();
+            artikelAanmaken.ShowDialog();
+        }
     }
 }

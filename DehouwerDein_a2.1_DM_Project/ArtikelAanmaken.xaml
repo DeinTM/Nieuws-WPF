@@ -11,28 +11,29 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="Artikel Aanmaken" Height="1000" Width="800">
-    <Grid Margin="50">
+        Title="Artikel Aanmaken" Height="1000" Width="800" ScrollViewer.VerticalScrollBarVisibility="Visible">
+    <Grid Margin="50" Height="auto">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
 
 
-        <Label Content="Titel" Grid.Column="0" Grid.Row="0" FontSize="25" FontWeight="Bold" />
+        <Label x:Name="lblTitel" Content="Titel" Grid.Column="0" Grid.Row="0" FontSize="25" FontWeight="Bold" />
 
         <TextBox
+            x:Name="tbTitel"
             VerticalAlignment="Top"
             Height="50"
             AcceptsReturn="True"
@@ -42,9 +43,10 @@
             Grid.Row="1"
             BorderThickness="2" />
 
-        <Label Content="Artikel" Grid.Column="0" Grid.Row="2" FontSize="25" FontWeight="Bold" />
+        <Label x:Name="lblArtikel" Content="Artikel" Grid.Column="0" Grid.Row="2" FontSize="25" FontWeight="Bold" />
 
         <TextBox
+            x:Name="tbArtikel"
             VerticalAlignment="Top"
             Height="400"
             AcceptsReturn="True"
@@ -54,9 +56,35 @@
             Grid.Row="3"
             BorderThickness="2" />
 
-        <Label Content="Categorie" Grid.Column="0" Grid.Row="6" FontSize="25" FontWeight="Bold" />
+        <Label x:Name="lblAfbeelding" Content="Afbeelding" Grid.Column="0" Grid.Row="4" FontSize="25" FontWeight="Bold" />
+
+        <TextBox
+            x:Name="tbUpload"
+            VerticalAlignment="Top"
+            Height="50"
+            AcceptsReturn="True"
+            TextWrapping="Wrap"
+            VerticalScrollBarVisibility="Auto"
+            Grid.Column="0" 
+            Grid.Row="5"
+            BorderThickness="2" />
+
+        <Button
+            x:Name="btnUpload"
+            Style="{StaticResource MaterialDesignRaisedLightButton}"
+            Width="150"
+            Height="50"
+            ToolTip="Resource name: MaterialDesignRaisedLightButton"
+            Grid.Column="0"
+            Grid.Row="5" Margin="544,0.2,-0.4,0.2"
+            Click="btnUpload_Click">
+            UPLOAD
+        </Button>
+
+        <Label x:Name="lblCategorie" Content="Categorie" Grid.Column="0" Grid.Row="6" FontSize="25" FontWeight="Bold" />
 
         <ComboBox
+            x:Name="cbCategorie"
           materialDesign:TextFieldAssist.HasClearButton="True"
           Style="{StaticResource MaterialDesignFloatingHintComboBox}"
           materialDesign:HintAssist.HelperText="Selecteer één categorie"
@@ -77,15 +105,18 @@
             </ComboBoxItem>
         </ComboBox>
 
-        <Label Content="Afbeelding" Grid.Column="0" Grid.Row="4" FontSize="25" FontWeight="Bold" />
+
+
 
         <Button
+            x:Name="btnPost"
             Style="{StaticResource MaterialDesignRaisedLightButton}"
             Width="auto"
             Height="50"
             ToolTip="Resource name: MaterialDesignRaisedLightButton"
             Grid.Column="0"
-            Grid.Row="8">
+            Grid.Row="8"
+            Click="btnPost_Click">
                     POST
         </Button>
 

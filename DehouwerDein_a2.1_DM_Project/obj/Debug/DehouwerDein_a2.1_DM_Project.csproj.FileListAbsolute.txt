@@ -74,3 +74,11 @@ C:\Users\DeinDehouwer\Desktop\project\DehouwerDein_a2.1_DM_Project\obj\Debug\Geb
 C:\Users\DeinDehouwer\Desktop\project\DehouwerDein_a2.1_DM_Project\obj\Debug\ArtikelAanmaken.baml
 C:\Users\DeinDehouwer\Desktop\project\DehouwerDein_a2.1_DM_Project\obj\Debug\ArtikelBewerken.baml
 C:\Users\DeinDehouwer\Desktop\project\DehouwerDein_a2.1_DM_Project\obj\Debug\GebruikersLijst.baml
+C:\Users\DeinDehouwer\Desktop\project2\Nieuws-WPF\DehouwerDein_a2.1_DM_Project\obj\Debug\ArtikelAanmaken.g.cs
+C:\Users\DeinDehouwer\Desktop\project2\Nieuws-WPF\DehouwerDein_a2.1_DM_Project\obj\Debug\ArtikelBewerken.g.cs
+C:\Users\DeinDehouwer\Desktop\project2\Nieuws-WPF\DehouwerDein_a2.1_DM_Project\obj\Debug\ArtikelWindow.g.cs
+C:\Users\DeinDehouwer\Desktop\project2\Nieuws-WPF\DehouwerDein_a2.1_DM_Project\obj\Debug\GebruikersLijst.g.cs
+C:\Users\DeinDehouwer\Desktop\project2\Nieuws-WPF\DehouwerDein_a2.1_DM_Project\obj\Debug\ArtikelAanmaken.baml
+C:\Users\DeinDehouwer\Desktop\project2\Nieuws-WPF\DehouwerDein_a2.1_DM_Project\obj\Debug\ArtikelBewerken.baml
+C:\Users\DeinDehouwer\Desktop\project2\Nieuws-WPF\DehouwerDein_a2.1_DM_Project\obj\Debug\ArtikelWindow.baml
+C:\Users\DeinDehouwer\Desktop\project2\Nieuws-WPF\DehouwerDein_a2.1_DM_Project\obj\Debug\GebruikersLijst.baml
