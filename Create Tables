@@ -1,0 +1,191 @@
+-- ************************************** [dbo].[Gebruiker]
+CREATE TABLE [dbo].[Gebruiker]
+(
+ [id]             int NOT NULL ,
+ [naam]          varchar NOT NULL ,
+ [voornaam]      varchar NOT NULL ,
+ [geslacht]      varchar NOT NULL ,
+ [geboortedatum] date NULL ,
+ [beroep]        varchar NULL ,
+ [opleiding]     varchar NULL ,
+ [homepage]      varchar NULL ,
+ [avatar]        varchar NOT NULL ,
+ [abonnee]       bit NOT NULL ,
+ [email]         varchar NOT NULL ,
+
+
+ CONSTRAINT [PK_5] PRIMARY KEY CLUSTERED ([id] ASC)
+);
+GO
+
+-- ************************************** [dbo].[Bericht]
+CREATE TABLE [dbo].[Bericht]
+(
+ [id]            int NOT NULL ,
+ [onderwerp]     varchar NOT NULL ,
+ [ontvangerId]   int NOT NULL ,
+ [verstuurderId] int  NOT NULL ,
+ [inhoud]        varchar NOT NULL ,
+ [verstuurdOm]   datetime NOT NULL ,
+
+
+ CONSTRAINT [PK_18] PRIMARY KEY CLUSTERED ([id] ASC),
+ CONSTRAINT [FK_22] FOREIGN KEY ([verstuurderId])  REFERENCES [dbo].[Gebruiker]([id]),
+ CONSTRAINT [FK_25] FOREIGN KEY ([ontvangerId])  REFERENCES [dbo].[Gebruiker]([id])
+);
+GO
+
+
+CREATE NONCLUSTERED INDEX [FK_24] ON [dbo].[Bericht] 
+ (
+  [verstuurderId] ASC
+ )
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_27] ON [dbo].[Bericht] 
+ (
+  [ontvangerId] ASC
+ )
+
+GO
+
+-- ************************************** [dbo].[Categorie]
+CREATE TABLE [dbo].[Categorie]
+(
+ [id]   int NOT NULL ,
+ [naam] varchar NOT NULL ,
+
+
+ CONSTRAINT [PK_78] PRIMARY KEY CLUSTERED ([id] ASC)
+);
+GO
+
+-- ************************************** [dbo].[NieuwsArtikel]
+CREATE TABLE [dbo].[NieuwsArtikel]
+(
+ [id]           int NOT NULL ,
+ [titel]        varchar NOT NULL ,
+ [categorieId]  int NOT NULL ,
+ [artikel]      varchar NOT NULL ,
+ [aangemaaktOp] datetime NOT NULL ,
+ [samenvatting] varchar NOT NULL ,
+ [cover]        varchar NOT NULL ,
+ [plusArtikel]  bit NOT NULL ,
+
+
+ CONSTRAINT [PK_30] PRIMARY KEY CLUSTERED ([id] ASC),
+ CONSTRAINT [FK_80] FOREIGN KEY ([categorieId])  REFERENCES [dbo].[Categorie]([id])
+);
+GO
+
+
+CREATE NONCLUSTERED INDEX [FK_82] ON [dbo].[NieuwsArtikel] 
+ (
+  [categorieId] ASC
+ )
+
+GO
+
+-- ************************************** [dbo].[Auteur]
+CREATE TABLE [dbo].[Auteur]
+(
+ [id]              int NOT NULL ,
+ [nieuwsArtikelId] int NOT NULL ,
+ [gebruikerId]     int NOT NULL ,
+
+
+ CONSTRAINT [PK_39] PRIMARY KEY CLUSTERED ([id] ASC),
+ CONSTRAINT [FK_40] FOREIGN KEY ([nieuwsArtikelId])  REFERENCES [dbo].[NieuwsArtikel]([id]),
+ CONSTRAINT [FK_61] FOREIGN KEY ([gebruikerId])  REFERENCES [dbo].[Gebruiker]([id])
+);
+GO
+
+
+CREATE NONCLUSTERED INDEX [FK_42] ON [dbo].[Auteur] 
+ (
+  [nieuwsArtikelId] ASC
+ )
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_63] ON [dbo].[Auteur] 
+ (
+  [gebruikerId] ASC
+ )
+
+GO
+
+
+-- ************************************** [dbo].[Reactie]
+CREATE TABLE [dbo].[Reactie]
+(
+ [id]              int NOT NULL ,
+ [aangemaaktOp]    datetime NOT NULL ,
+ [gebruikerId]     int NOT NULL ,
+ [nieuwsArtikelId] int NOT NULL ,
+ [reactie]         varchar NOT NULL ,
+ [scorePunten]     int NOT NULL ,
+
+
+ CONSTRAINT [PK_66] PRIMARY KEY CLUSTERED ([id] ASC),
+ CONSTRAINT [FK_70] FOREIGN KEY ([nieuwsArtikelId])  REFERENCES [dbo].[NieuwsArtikel]([id]),
+ CONSTRAINT [FK_73] FOREIGN KEY ([gebruikerId])  REFERENCES [dbo].[Gebruiker]([id])
+);
+GO
+
+
+CREATE NONCLUSTERED INDEX [FK_72] ON [dbo].[Reactie] 
+ (
+  [nieuwsArtikelId] ASC
+ )
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_75] ON [dbo].[Reactie] 
+ (
+  [gebruikerId] ASC
+ )
+
+GO
+
+-- ************************************** [dbo].[Advertentie]
+CREATE TABLE [dbo].[Advertentie]
+(
+ [id]         int NOT NULL ,
+ [afbeelding] varchar NOT NULL ,
+ [url]        varchar NOT NULL ,
+ [tijdsduur]  datetime NOT NULL ,
+
+
+ CONSTRAINT [PK_86] PRIMARY KEY CLUSTERED ([id] ASC)
+);
+GO
+
+
+-- ************************************** [dbo].[NieuwsArtikelAdvertentie]
+CREATE TABLE [dbo].[NieuwsArtikelAdvertentie]
+(
+ [advertentieId]   int NOT NULL ,
+ [nieuwsArtikelId] int NOT NULL ,
+
+
+ CONSTRAINT [FK_90] FOREIGN KEY ([advertentieId])  REFERENCES [dbo].[Advertentie]([id]),
+ CONSTRAINT [FK_93] FOREIGN KEY ([nieuwsArtikelId])  REFERENCES [dbo].[NieuwsArtikel]([id])
+);
+GO
+
+
+CREATE NONCLUSTERED INDEX [FK_92] ON [dbo].[NieuwsArtikelAdvertentie] 
+ (
+  [advertentieId] ASC
+ )
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_95] ON [dbo].[NieuwsArtikelAdvertentie] 
+ (
+  [nieuwsArtikelId] ASC
+ )
+
+GO
