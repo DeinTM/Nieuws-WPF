@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NieuwsModelStoreContainer" CdmEntityContainer="NieuwsEntities">
+    <EntitySetMapping Name="Advertentie">
+      <EntityTypeMapping TypeName="NieuwsModel.Advertentie">
+        <MappingFragment StoreEntitySet="Advertentie">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="afbeelding" ColumnName="afbeelding" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="tijdsduur" ColumnName="tijdsduur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Auteur">
+      <EntityTypeMapping TypeName="NieuwsModel.Auteur">
+        <MappingFragment StoreEntitySet="Auteur">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nieuwsArtikelId" ColumnName="nieuwsArtikelId" />
+          <ScalarProperty Name="gebruikerId" ColumnName="gebruikerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bericht">
+      <EntityTypeMapping TypeName="NieuwsModel.Bericht">
+        <MappingFragment StoreEntitySet="Bericht">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="onderwerp" ColumnName="onderwerp" />
+          <ScalarProperty Name="ontvangerId" ColumnName="ontvangerId" />
+          <ScalarProperty Name="verstuurderId" ColumnName="verstuurderId" />
+          <ScalarProperty Name="inhoud" ColumnName="inhoud" />
+          <ScalarProperty Name="verstuurdOm" ColumnName="verstuurdOm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categorie">
+      <EntityTypeMapping TypeName="NieuwsModel.Categorie">
+        <MappingFragment StoreEntitySet="Categorie">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="naam" ColumnName="naam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gebruiker">
+      <EntityTypeMapping TypeName="NieuwsModel.Gebruiker">
+        <MappingFragment StoreEntitySet="Gebruiker">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="naam" ColumnName="naam" />
+          <ScalarProperty Name="voornaam" ColumnName="voornaam" />
+          <ScalarProperty Name="geslacht" ColumnName="geslacht" />
+          <ScalarProperty Name="geboortedatum" ColumnName="geboortedatum" />
+          <ScalarProperty Name="beroep" ColumnName="beroep" />
+          <ScalarProperty Name="opleiding" ColumnName="opleiding" />
+          <ScalarProperty Name="homepage" ColumnName="homepage" />
+          <ScalarProperty Name="avatar" ColumnName="avatar" />
+          <ScalarProperty Name="abonnee" ColumnName="abonnee" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NieuwsArtikel">
+      <EntityTypeMapping TypeName="NieuwsModel.NieuwsArtikel">
+        <MappingFragment StoreEntitySet="NieuwsArtikel">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="titel" ColumnName="titel" />
+          <ScalarProperty Name="categorieId" ColumnName="categorieId" />
+          <ScalarProperty Name="artikel" ColumnName="artikel" />
+          <ScalarProperty Name="aangemaaktOp" ColumnName="aangemaaktOp" />
+          <ScalarProperty Name="samenvatting" ColumnName="samenvatting" />
+          <ScalarProperty Name="cover" ColumnName="cover" />
+          <ScalarProperty Name="plusArtikel" ColumnName="plusArtikel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NieuwsArtikelAdvertentie">
+      <EntityTypeMapping TypeName="NieuwsModel.NieuwsArtikelAdvertentie">
+        <MappingFragment StoreEntitySet="NieuwsArtikelAdvertentie">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="advertentieId" ColumnName="advertentieId" />
+          <ScalarProperty Name="nieuwsArtikelId" ColumnName="nieuwsArtikelId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reactie">
+      <EntityTypeMapping TypeName="NieuwsModel.Reactie">
+        <MappingFragment StoreEntitySet="Reactie">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="aangemaaktOp" ColumnName="aangemaaktOp" />
+          <ScalarProperty Name="gebruikerId" ColumnName="gebruikerId" />
+          <ScalarProperty Name="nieuwsArtikelId" ColumnName="nieuwsArtikelId" />
+          <ScalarProperty Name="reactie1" ColumnName="reactie" />
+          <ScalarProperty Name="scorePunten" ColumnName="scorePunten" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
