@@ -11,8 +11,216 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Nieuws Overzicht" Height="800" Width="800" Loaded="Window_Loaded">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Content="Nieuws Overzicht" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="25" Margin="298,0,98.6,0.2"></Label>
+
+        <materialDesign:PackIcon Kind="Search" Grid.Column="1" RenderTransformOrigin="23.8,1.548" Margin="308.2,5,0,0" Height="29" Width="40" />
+
+        <materialDesign:Card
+  Width="300" Grid.Column="0" Grid.Row="1" Margin="30">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition
+        Height="140" />
+                    <RowDefinition
+        Height="*" />
+                    <RowDefinition
+        Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel
+      Grid.Row="1"
+      Margin="8 24 8 0">
+                    <TextBlock
+        FontWeight="Bold">
+      Cycling
+                    </TextBlock>
+                    <TextBlock
+        TextWrapping="Wrap"
+        VerticalAlignment="Center">
+      A great way to keep fit and forget about the constant grind of IT.
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel
+      HorizontalAlignment="Right"
+      Grid.Row="2"
+      Orientation="Horizontal"
+      Margin="8">
+                    <Button
+        Style="{StaticResource MaterialDesignToolButton}"
+        Width="30"
+        Padding="2 0 2 0"
+        materialDesign:RippleAssist.IsCentered="True"/>
+
+                </StackPanel>
+                <Button
+    Style="{StaticResource MaterialDesignOutlinedButton}"
+    ToolTip="MaterialDesignOutlinedButton" Content="LEES MEER" Margin="8,0,174,16" Grid.Row="2" Click="Button_Click"/>
+                
+                <materialDesign:PackIcon
+          Kind="Pencil" RenderTransformOrigin="0.29,-13.23" Margin="262,18,0,0" Height="28" Width="23" MouseDoubleClick="PackIcon_MouseDoubleClick" />
+                <materialDesign:Chip Margin="241,90,0,18" Grid.Row="1" RenderTransformOrigin="1.552,0.581" Content="Tech" Grid.RowSpan="2"/>
+            </Grid>
+        </materialDesign:Card>
+
+        <materialDesign:Card
+  Width="300" Grid.Column="1" Grid.Row="1" Margin="30">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition
+        Height="140" />
+                    <RowDefinition
+        Height="*" />
+                    <RowDefinition
+        Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel
+      Grid.Row="1"
+      Margin="8 24 8 0">
+                    <TextBlock
+        FontWeight="Bold">
+      Cycling
+                    </TextBlock>
+                    <TextBlock
+        TextWrapping="Wrap"
+        VerticalAlignment="Center">
+      A great way to keep fit and forget about the constant grind of IT.
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel
+      HorizontalAlignment="Right"
+      Grid.Row="2"
+      Orientation="Horizontal"
+      Margin="8">
+                    <Button
+        Style="{StaticResource MaterialDesignToolButton}"
+        Width="30"
+        Padding="2 0 2 0"
+        materialDesign:RippleAssist.IsCentered="True"/>
+
+                </StackPanel>
+                <Button
+    Style="{StaticResource MaterialDesignOutlinedButton}"
+    ToolTip="MaterialDesignOutlinedButton" Content="LEES MEER" Margin="8,0,174,16" Grid.Row="2"/>
+                <materialDesign:PackIcon
+          Kind="Pencil" RenderTransformOrigin="0.29,-13.23" Margin="262,18,0,0" Height="28" Width="23" />
+                <materialDesign:Chip Margin="241,90,0,18" Grid.Row="1" RenderTransformOrigin="1.552,0.581" Content="Tech" Grid.RowSpan="2"/>
+            </Grid>
+        </materialDesign:Card>
+
+        <materialDesign:Card
+  Width="300" Grid.Column="0" Grid.Row="2" Margin="30">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition
+        Height="140" />
+                    <RowDefinition
+        Height="*" />
+                    <RowDefinition
+        Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel
+      Grid.Row="1"
+      Margin="8 24 8 0">
+                    <TextBlock
+        FontWeight="Bold">
+      Cycling
+                    </TextBlock>
+                    <TextBlock
+        TextWrapping="Wrap"
+        VerticalAlignment="Center">
+      A great way to keep fit and forget about the constant grind of IT.
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel
+      HorizontalAlignment="Right"
+      Grid.Row="2"
+      Orientation="Horizontal"
+      Margin="8">
+                    <Button
+        Style="{StaticResource MaterialDesignToolButton}"
+        Width="30"
+        Padding="2 0 2 0"
+        materialDesign:RippleAssist.IsCentered="True"/>
+
+                </StackPanel>
+                <Button
+    Style="{StaticResource MaterialDesignOutlinedButton}"
+    ToolTip="MaterialDesignOutlinedButton" Content="LEES MEER" Margin="8,0,174,16" Grid.Row="2"/>
+                <materialDesign:PackIcon
+          Kind="Pencil" RenderTransformOrigin="0.29,-13.23" Margin="262,18,0,0" Height="28" Width="23" />
+                <materialDesign:Chip Margin="241,90,0,18" Grid.Row="1" RenderTransformOrigin="1.552,0.581" Content="Tech" Grid.RowSpan="2"/>
+            </Grid>
+        </materialDesign:Card>
+
+        <materialDesign:Card
+  Width="300" Grid.Column="1" Grid.Row="2" Margin="30">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition
+        Height="140" />
+                    <RowDefinition
+        Height="*" />
+                    <RowDefinition
+        Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel
+      Grid.Row="1"
+      Margin="8 24 8 0">
+                    <TextBlock
+        FontWeight="Bold">
+      Cycling
+                    </TextBlock>
+                    <TextBlock
+        TextWrapping="Wrap"
+        VerticalAlignment="Center">
+      A great way to keep fit and forget about the constant grind of IT.
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel
+      HorizontalAlignment="Right"
+      Grid.Row="2"
+      Orientation="Horizontal"
+      Margin="8">
+                    <Button
+        Style="{StaticResource MaterialDesignToolButton}"
+        Width="30"
+        Padding="2 0 2 0"
+        materialDesign:RippleAssist.IsCentered="True"/>
+
+                </StackPanel>
+                <Button
+    Style="{StaticResource MaterialDesignOutlinedButton}"
+    ToolTip="MaterialDesignOutlinedButton" Content="LEES MEER" Margin="8,0,174,16" Grid.Row="2"/>
+                <materialDesign:PackIcon
+          Kind="Pencil" RenderTransformOrigin="0.29,-13.23" Margin="262,18,0,0" Height="28" Width="23" />
+                <materialDesign:Chip Margin="241,90,0,18" Grid.Row="1" RenderTransformOrigin="1.552,0.581" Content="Tech" Grid.RowSpan="2"/>
+            </Grid>
+        </materialDesign:Card>
+
+
+        <Button
+            x:Name="btnNieuwArtikel"
+  Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+  ToolTip="MaterialDesignFloatingActionAccentButton" Grid.Column="1" Margin="331.2,331.4,9.6,-45.8" Grid.Row="2" Grid.RowSpan="2" Click="btnNieuwArtikel_Click">
+            <materialDesign:PackIcon
+    Kind="Plus"
+    Height="24"
+    Width="24" />
+        </Button>
+
+
     </Grid>
 </Window>
