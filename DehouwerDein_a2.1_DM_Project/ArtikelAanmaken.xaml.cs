@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DehouwerDein_a2._1_DM_Project.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,31 @@ namespace DehouwerDein_a2._1_DM_Project
 
         private void btnPost_Click(object sender, RoutedEventArgs e)
         {
+            NieuwsArtikel nieuwsArtikel = new NieuwsArtikel();
+            try
+            {
+                nieuwsArtikel.id = 1;
+                nieuwsArtikel.titel = tbTitel.Text;
+                nieuwsArtikel.artikel = tbArtikel.Text;
+                nieuwsArtikel.cover = tbUpload.Text;
+                nieuwsArtikel.categorieId = 1;
+                //nieuwsArtikel.Auteur = 1;
+                nieuwsArtikel.aangemaaktOp = DateTime.Now;
+                nieuwsArtikel.plusArtikel = false;
+                nieuwsArtikel.samenvatting = tbArtikel.Text;
+
+                DatabaseOperations.ToevoegenArtikel(nieuwsArtikel);
+
+                MessageBox.Show("Done!");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            
+
+
 
         }
     }
