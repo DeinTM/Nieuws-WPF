@@ -59,5 +59,12 @@ namespace DehouwerDein_a2._1_DM_Project
 
 
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+            cbCategorie.ItemsSource = DatabaseOperations.OphalenCategorieen();
+            cbCategorie.DisplayMemberPath = "naam";
+        }
     }
 }

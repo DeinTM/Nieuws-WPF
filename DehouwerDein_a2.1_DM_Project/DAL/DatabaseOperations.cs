@@ -19,6 +19,25 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
             }
         }
 
+        public static List<Categorie> OphalenCategorieen()
+        {
+            using (NieuwsEntities entities = new NieuwsEntities())
+            {
+                var query = entities.Categories;
+                return query.ToList();
+            }
+        }
+
+        public static List<NieuwsArtikel> OphalenNieuwsArtikelViaID(int artikelID)
+        {
+            using (NieuwsEntities entities = new NieuwsEntities())
+            {
+                return entities.NieuwsArtikels
+                    .Where(x => x.id == artikelID)
+                    .ToList();
+            }
+        }
+
         // Creëeropdrachten
 
         public static int ToevoegenArtikel(NieuwsArtikel nieuwsArtikel)
