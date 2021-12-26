@@ -128,13 +128,7 @@
     <Compile Include="ArtikelWindow.xaml.cs">
       <DependentUpon>ArtikelWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DAL\Advertentie.cs">
-      <DependentUpon>NieuwsModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DAL\Auteur.cs">
-      <DependentUpon>NieuwsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\Bericht.cs">
       <DependentUpon>NieuwsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Categorie.cs">
@@ -145,9 +139,6 @@
       <DependentUpon>NieuwsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\NieuwsArtikel.cs">
-      <DependentUpon>NieuwsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\NieuwsArtikelAdvertentie.cs">
       <DependentUpon>NieuwsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\NieuwsModel.Context.cs">
@@ -210,7 +201,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

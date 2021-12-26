@@ -4,24 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="394c82f88edc4a7586d694b5f172dffc" Name="Diagram1">
-        <EntityTypeShape EntityType="NieuwsModel.Advertentie" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NieuwsModel.Auteur" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NieuwsModel.Bericht" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="NieuwsModel.Categorie" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="NieuwsModel.Gebruiker" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NieuwsModel.NieuwsArtikel" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="NieuwsModel.NieuwsArtikelAdvertentie" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NieuwsModel.Reactie" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
-        <AssociationConnector Association="NieuwsModel.FK_90" ManuallyRouted="false" />
+      <Diagram DiagramId="1b65e09f7ff244c4811bfaa644b65d97" Name="Diagram1">
+        <EntityTypeShape EntityType="NieuwsModel.Auteur" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="NieuwsModel.Categorie" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NieuwsModel.Gebruiker" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NieuwsModel.NieuwsArtikel" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NieuwsModel.Reactie" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="NieuwsModel.FK_40" ManuallyRouted="false" />
         <AssociationConnector Association="NieuwsModel.FK_61" ManuallyRouted="false" />
-        <AssociationConnector Association="NieuwsModel.FK_22" ManuallyRouted="false" />
-        <AssociationConnector Association="NieuwsModel.FK_25" ManuallyRouted="false" />
         <AssociationConnector Association="NieuwsModel.FK_80" ManuallyRouted="false" />
         <AssociationConnector Association="NieuwsModel.FK_73" ManuallyRouted="false" />
         <AssociationConnector Association="NieuwsModel.FK_70" ManuallyRouted="false" />
-        <AssociationConnector Association="NieuwsModel.FK_93" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

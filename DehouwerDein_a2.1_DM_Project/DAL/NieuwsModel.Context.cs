@@ -25,13 +25,10 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Advertentie> Advertentie { get; set; }
-        public virtual DbSet<Auteur> Auteur { get; set; }
-        public virtual DbSet<Bericht> Bericht { get; set; }
-        public virtual DbSet<Categorie> Categorie { get; set; }
-        public virtual DbSet<Gebruiker> Gebruiker { get; set; }
-        public virtual DbSet<NieuwsArtikel> NieuwsArtikel { get; set; }
-        public virtual DbSet<NieuwsArtikelAdvertentie> NieuwsArtikelAdvertentie { get; set; }
-        public virtual DbSet<Reactie> Reactie { get; set; }
+        public virtual DbSet<Auteur> Auteurs { get; set; }
+        public virtual DbSet<Categorie> Categories { get; set; }
+        public virtual DbSet<Gebruiker> Gebruikers { get; set; }
+        public virtual DbSet<NieuwsArtikel> NieuwsArtikels { get; set; }
+        public virtual DbSet<Reactie> Reacties { get; set; }
     }
 }

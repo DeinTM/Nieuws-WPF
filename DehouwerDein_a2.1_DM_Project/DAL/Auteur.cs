@@ -18,7 +18,7 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
         public int nieuwsArtikelId { get; set; }
         public int gebruikerId { get; set; }
     
-        public virtual NieuwsArtikel NieuwsArtikel { get; set; }
-        public virtual Gebruiker Gebruiker { get; set; }
+        public virtual NieuwsArtikel NieuwsArtikels { get; set; }
+        public virtual Gebruiker Gebruikers { get; set; }
     }
 }

@@ -18,8 +18,6 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
         public Gebruiker()
         {
             this.Auteur = new HashSet<Auteur>();
-            this.Bericht = new HashSet<Bericht>();
-            this.Bericht1 = new HashSet<Bericht>();
             this.Reactie = new HashSet<Reactie>();
         }
     
@@ -37,10 +35,6 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Auteur> Auteur { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Bericht> Bericht { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Bericht> Bericht1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reactie> Reactie { get; set; }
     }
