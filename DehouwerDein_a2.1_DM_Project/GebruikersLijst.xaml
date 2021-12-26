@@ -11,9 +11,9 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="GebruikersLijst" Height="450" Width="800">
+        Title="GebruikersLijst" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid Width="auto">
-        <ListView
+        <!--<ListView
             x:Name="lvGebruikers"
   ItemsSource="{Binding Items1}">
             <ListView.View>
@@ -35,6 +35,8 @@
         Header="Homepage" Width="auto" />
                 </GridView>
             </ListView.View>
-        </ListView>
+        </ListView>-->
+
+        <DataGrid x:Name="dataGebruikers" AutoGenerateColumns="true"></DataGrid>
     </Grid>
 </Window>

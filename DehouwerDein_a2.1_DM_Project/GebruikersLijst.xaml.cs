@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DehouwerDein_a2._1_DM_Project.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,11 @@ namespace DehouwerDein_a2._1_DM_Project
         public GebruikersLijst()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            dataGebruikers.ItemsSource = DatabaseOperations.OphalenGebruikers();
         }
     }
 }

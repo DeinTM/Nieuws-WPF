@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NieuwsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Auteur">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="nieuwsArtikelId" Type="Int32" Nullable="false" />
+    <Property Name="gebruikerId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="NieuwsArtikels" Relationship="Self.FK_40" FromRole="Auteur" ToRole="NieuwsArtikel" />
+    <NavigationProperty Name="Gebruikers" Relationship="Self.FK_61" FromRole="Auteur" ToRole="Gebruiker" />
+  </EntityType>
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="naam" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="NieuwsArtikel" Relationship="Self.FK_80" FromRole="Categorie" ToRole="NieuwsArtikel" />
+  </EntityType>
+  <EntityType Name="Gebruiker">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="naam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="voornaam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="geslacht" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="geboortedatum" Type="DateTime" Precision="0" />
+    <Property Name="beroep" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="opleiding" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="homepage" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="avatar" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="abonnee" Type="Boolean" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Auteur" Relationship="Self.FK_61" FromRole="Gebruiker" ToRole="Auteur" />
+    <NavigationProperty Name="Reactie" Relationship="Self.FK_73" FromRole="Gebruiker" ToRole="Reactie" />
+  </EntityType>
+  <EntityType Name="NieuwsArtikel">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="titel" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="categorieId" Type="Int32" Nullable="false" />
+    <Property Name="artikel" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="aangemaaktOp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="samenvatting" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cover" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="plusArtikel" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Auteur" Relationship="Self.FK_40" FromRole="NieuwsArtikel" ToRole="Auteur" />
+    <NavigationProperty Name="Categorie" Relationship="Self.FK_80" FromRole="NieuwsArtikel" ToRole="Categorie" />
+    <NavigationProperty Name="Reactie" Relationship="Self.FK_70" FromRole="NieuwsArtikel" ToRole="Reactie" />
+  </EntityType>
+  <EntityType Name="Reactie">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="aangemaaktOp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="gebruikerId" Type="Int32" Nullable="false" />
+    <Property Name="nieuwsArtikelId" Type="Int32" Nullable="false" />
+    <Property Name="reactie1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="scorePunten" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Gebruikers" Relationship="Self.FK_73" FromRole="Reactie" ToRole="Gebruiker" />
+    <NavigationProperty Name="NieuwsArtikels" Relationship="Self.FK_70" FromRole="Reactie" ToRole="NieuwsArtikel" />
+  </EntityType>
+  <Association Name="FK_40">
+    <End Role="NieuwsArtikel" Type="Self.NieuwsArtikel" Multiplicity="1" />
+    <End Role="Auteur" Type="Self.Auteur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NieuwsArtikel">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Auteur">
+        <PropertyRef Name="nieuwsArtikelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_61">
+    <End Role="Gebruiker" Type="Self.Gebruiker" Multiplicity="1" />
+    <End Role="Auteur" Type="Self.Auteur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gebruiker">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Auteur">
+        <PropertyRef Name="gebruikerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_80">
+    <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+    <End Role="NieuwsArtikel" Type="Self.NieuwsArtikel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="NieuwsArtikel">
+        <PropertyRef Name="categorieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_73">
+    <End Role="Gebruiker" Type="Self.Gebruiker" Multiplicity="1" />
+    <End Role="Reactie" Type="Self.Reactie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gebruiker">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Reactie">
+        <PropertyRef Name="gebruikerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_70">
+    <End Role="NieuwsArtikel" Type="Self.NieuwsArtikel" Multiplicity="1" />
+    <End Role="Reactie" Type="Self.Reactie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NieuwsArtikel">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Reactie">
+        <PropertyRef Name="nieuwsArtikelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NieuwsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Auteurs" EntityType="Self.Auteur" />
+    <EntitySet Name="Categories" EntityType="Self.Categorie" />
+    <EntitySet Name="Gebruikers" EntityType="Self.Gebruiker" />
+    <EntitySet Name="NieuwsArtikels" EntityType="Self.NieuwsArtikel" />
+    <EntitySet Name="Reacties" EntityType="Self.Reactie" />
+    <AssociationSet Name="FK_40" Association="Self.FK_40">
+      <End Role="NieuwsArtikel" EntitySet="NieuwsArtikels" />
+      <End Role="Auteur" EntitySet="Auteurs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_61" Association="Self.FK_61">
+      <End Role="Gebruiker" EntitySet="Gebruikers" />
+      <End Role="Auteur" EntitySet="Auteurs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_80" Association="Self.FK_80">
+      <End Role="Categorie" EntitySet="Categories" />
+      <End Role="NieuwsArtikel" EntitySet="NieuwsArtikels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_73" Association="Self.FK_73">
+      <End Role="Gebruiker" EntitySet="Gebruikers" />
+      <End Role="Reactie" EntitySet="Reacties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_70" Association="Self.FK_70">
+      <End Role="NieuwsArtikel" EntitySet="NieuwsArtikels" />
+      <End Role="Reactie" EntitySet="Reacties" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

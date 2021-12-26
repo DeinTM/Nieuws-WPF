@@ -47,5 +47,11 @@ namespace DehouwerDein_a2._1_DM_Project
             ArtikelAanmaken artikelAanmaken = new ArtikelAanmaken();
             artikelAanmaken.ShowDialog();
         }
+
+        private void btnGebruikers_Click(object sender, RoutedEventArgs e)
+        {
+            GebruikersLijst gebruikersLijst = new GebruikersLijst();
+            gebruikersLijst.ShowDialog();
+        }
     }
 }

@@ -82,3 +82,8 @@ C:\Users\DeinDehouwer\Desktop\project2\Nieuws-WPF\DehouwerDein_a2.1_DM_Project\o
 C:\Users\DeinDehouwer\Desktop\project2\Nieuws-WPF\DehouwerDein_a2.1_DM_Project\obj\Debug\ArtikelBewerken.baml
 C:\Users\DeinDehouwer\Desktop\project2\Nieuws-WPF\DehouwerDein_a2.1_DM_Project\obj\Debug\ArtikelWindow.baml
 C:\Users\DeinDehouwer\Desktop\project2\Nieuws-WPF\DehouwerDein_a2.1_DM_Project\obj\Debug\GebruikersLijst.baml
+C:\Users\DeinDehouwer\Desktop\project2\Nieuws-WPF\DehouwerDein_a2.1_DM_Project\bin\Debug\EntityFramework.dll
+C:\Users\DeinDehouwer\Desktop\project2\Nieuws-WPF\DehouwerDein_a2.1_DM_Project\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\DeinDehouwer\Desktop\project2\Nieuws-WPF\DehouwerDein_a2.1_DM_Project\bin\Debug\EntityFramework.xml
+C:\Users\DeinDehouwer\Desktop\project2\Nieuws-WPF\DehouwerDein_a2.1_DM_Project\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\DeinDehouwer\Desktop\project2\Nieuws-WPF\DehouwerDein_a2.1_DM_Project\obj\Debug\DehouwerDein_a2.1_DM_Project_Content.g.cs

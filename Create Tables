@@ -2,16 +2,16 @@
 CREATE TABLE [dbo].[Gebruiker]
 (
  [id]             int NOT NULL ,
- [naam]          varchar NOT NULL ,
- [voornaam]      varchar NOT NULL ,
- [geslacht]      varchar NOT NULL ,
+ [naam]          varchar(100) NOT NULL ,
+ [voornaam]      varchar(100) NOT NULL ,
+ [geslacht]      varchar(6) NOT NULL ,
  [geboortedatum] date NULL ,
- [beroep]        varchar NULL ,
- [opleiding]     varchar NULL ,
- [homepage]      varchar NULL ,
- [avatar]        varchar NOT NULL ,
+ [beroep]        varchar(250) NULL ,
+ [opleiding]     varchar(250) NULL ,
+ [homepage]      varchar(250) NULL ,
+ [avatar]        varchar(250) NOT NULL ,
  [abonnee]       bit NOT NULL ,
- [email]         varchar NOT NULL ,
+ [email]         varchar(200) NOT NULL ,
 
 
  CONSTRAINT [PK_5] PRIMARY KEY CLUSTERED ([id] ASC)
@@ -22,10 +22,10 @@ GO
 CREATE TABLE [dbo].[Bericht]
 (
  [id]            int NOT NULL ,
- [onderwerp]     varchar NOT NULL ,
+ [onderwerp]     varchar(250) NOT NULL ,
  [ontvangerId]   int NOT NULL ,
  [verstuurderId] int  NOT NULL ,
- [inhoud]        varchar NOT NULL ,
+ [inhoud]        varchar(250) NOT NULL ,
  [verstuurdOm]   datetime NOT NULL ,
 
 
@@ -54,7 +54,7 @@ GO
 CREATE TABLE [dbo].[Categorie]
 (
  [id]   int NOT NULL ,
- [naam] varchar NOT NULL ,
+ [naam] varchar(250) NOT NULL ,
 
 
  CONSTRAINT [PK_78] PRIMARY KEY CLUSTERED ([id] ASC)
@@ -65,12 +65,12 @@ GO
 CREATE TABLE [dbo].[NieuwsArtikel]
 (
  [id]           int NOT NULL ,
- [titel]        varchar NOT NULL ,
+ [titel]        varchar(250) NOT NULL ,
  [categorieId]  int NOT NULL ,
- [artikel]      varchar NOT NULL ,
+ [artikel]      varchar(250) NOT NULL ,
  [aangemaaktOp] datetime NOT NULL ,
- [samenvatting] varchar NOT NULL ,
- [cover]        varchar NOT NULL ,
+ [samenvatting] varchar(250) NOT NULL ,
+ [cover]        varchar(250) NOT NULL ,
  [plusArtikel]  bit NOT NULL ,
 
 
@@ -124,7 +124,7 @@ CREATE TABLE [dbo].[Reactie]
  [aangemaaktOp]    datetime NOT NULL ,
  [gebruikerId]     int NOT NULL ,
  [nieuwsArtikelId] int NOT NULL ,
- [reactie]         varchar NOT NULL ,
+ [reactie]         varchar(250) NOT NULL ,
  [scorePunten]     int NOT NULL ,
 
 
@@ -153,8 +153,8 @@ GO
 CREATE TABLE [dbo].[Advertentie]
 (
  [id]         int NOT NULL ,
- [afbeelding] varchar NOT NULL ,
- [url]        varchar NOT NULL ,
+ [afbeelding] varchar(250) NOT NULL ,
+ [url]        varchar(250) NOT NULL ,
  [tijdsduur]  datetime NOT NULL ,
 
 
@@ -166,10 +166,12 @@ GO
 -- ************************************** [dbo].[NieuwsArtikelAdvertentie]
 CREATE TABLE [dbo].[NieuwsArtikelAdvertentie]
 (
+ [id]              int NOT NULL ,
  [advertentieId]   int NOT NULL ,
  [nieuwsArtikelId] int NOT NULL ,
 
 
+ CONSTRAINT [PK_97] PRIMARY KEY CLUSTERED ([id] ASC),
  CONSTRAINT [FK_90] FOREIGN KEY ([advertentieId])  REFERENCES [dbo].[Advertentie]([id]),
  CONSTRAINT [FK_93] FOREIGN KEY ([nieuwsArtikelId])  REFERENCES [dbo].[NieuwsArtikel]([id])
 );
@@ -189,3 +191,6 @@ CREATE NONCLUSTERED INDEX [FK_95] ON [dbo].[NieuwsArtikelAdvertentie]
  )
 
 GO
+
+
+
