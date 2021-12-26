@@ -59,6 +59,25 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
             }
         }
 
+        public static int ToevoegenAuteur(Auteur auteur)
+        {
+            try
+            {
+                using (NieuwsEntities entities = new NieuwsEntities())
+                {
+
+                    entities.Auteurs.Add(auteur);
+                    return entities.SaveChanges();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                //FileOperations.FoutLoggen(ex);
+                return 0;
+            }
+        }
+
         // Aanpassingopdrachten
 
         // Verwijderopdrachten

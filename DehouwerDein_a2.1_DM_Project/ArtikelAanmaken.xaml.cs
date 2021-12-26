@@ -35,17 +35,31 @@ namespace DehouwerDein_a2._1_DM_Project
             NieuwsArtikel nieuwsArtikel = new NieuwsArtikel();
             try
             {
-                nieuwsArtikel.id = 1;
+                
                 nieuwsArtikel.titel = tbTitel.Text;
                 nieuwsArtikel.artikel = tbArtikel.Text;
                 nieuwsArtikel.cover = tbUpload.Text;
-                nieuwsArtikel.categorieId = 1;
-                //nieuwsArtikel.Auteur = 1;
+
+                Categorie categorie = cbCategorie.SelectedItem as Categorie;
+
+                nieuwsArtikel.categorieId = categorie.id;
+
+                Auteur auteur = new Auteur
+                {
+
+                    // Id wordt vast ingesteld om het project te vereenvoudigen...
+                    gebruikerId = 1,
+                    nieuwsArtikelId = nieuwsArtikel.id
+                };
+
+
+
                 nieuwsArtikel.aangemaaktOp = DateTime.Now;
                 nieuwsArtikel.plusArtikel = false;
                 nieuwsArtikel.samenvatting = tbArtikel.Text;
 
                 DatabaseOperations.ToevoegenArtikel(nieuwsArtikel);
+                DatabaseOperations.ToevoegenAuteur(auteur);
 
                 MessageBox.Show("Done!");
             }
