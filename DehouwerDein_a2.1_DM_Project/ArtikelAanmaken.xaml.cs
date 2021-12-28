@@ -35,7 +35,7 @@ namespace DehouwerDein_a2._1_DM_Project
             NieuwsArtikel nieuwsArtikel = new NieuwsArtikel();
             try
             {
-                
+                nieuwsArtikel.id = 3;
                 nieuwsArtikel.titel = tbTitel.Text;
                 nieuwsArtikel.artikel = tbArtikel.Text;
                 nieuwsArtikel.cover = tbUpload.Text;
