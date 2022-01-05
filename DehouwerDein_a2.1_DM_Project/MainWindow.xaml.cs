@@ -32,8 +32,8 @@ namespace DehouwerDein_a2._1_DM_Project
 
         private void PackIcon_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            ArtikelAanmaken artikelAanmaken = new ArtikelAanmaken();
-            artikelAanmaken.ShowDialog();
+            ArtikelBewerken artikelBewerken = new ArtikelBewerken();
+            artikelBewerken.ShowDialog();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
