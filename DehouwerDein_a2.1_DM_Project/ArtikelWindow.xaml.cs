@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DehouwerDein_a2._1_DM_Project.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,11 @@ namespace DehouwerDein_a2._1_DM_Project
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            NieuwsArtikel data = DatabaseOperations.OphalenNieuwsArtikel(7);
 
+            Titel.Text = data.titel;
+            Artikel.Text = data.artikel;
+            Afbeelding.Source = new BitmapImage(new Uri(data.cover));
         }
     }
 }
