@@ -11,13 +11,14 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="Artikel Bewerken" Height="1000" Width="800" ScrollViewer.VerticalScrollBarVisibility="Visible">
+        Title="Artikel Bewerken" Height="1000" Width="800" ScrollViewer.VerticalScrollBarVisibility="Visible" Loaded="Window_Loaded">
     <Grid Margin="50" Height="auto">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
@@ -91,18 +92,6 @@
           Grid.Column="0"
           Grid.Row="7"
             Width="250" RenderTransformOrigin="-0.853,0.532" Margin="0,0.2,443.6,96.4" Grid.RowSpan="2">
-            <ComboBoxItem>
-                Android
-            </ComboBoxItem>
-            <ComboBoxItem>
-                iOS
-            </ComboBoxItem>
-            <ComboBoxItem>
-                Linux
-            </ComboBoxItem>
-            <ComboBoxItem>
-                Windows
-            </ComboBoxItem>
         </ComboBox>
 
 
@@ -117,7 +106,19 @@
             Grid.Column="0"
             Grid.Row="8"
             Click="btnPostBewerken_Click">
-            POST
+            BEWERKEN
+        </Button>
+
+        <Button
+            x:Name="btnArtikelVerwijderen"
+            Style="{StaticResource MaterialDesignRaisedLightButton}"
+            Width="auto"
+            Height="50"
+            ToolTip="Resource name: MaterialDesignRaisedLightButton"
+            Grid.Column="0"
+            Grid.Row="9"
+            Click="btnArtikelVerwijderen_Click">
+            VERWIJDEREN
         </Button>
 
     </Grid>
