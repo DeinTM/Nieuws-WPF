@@ -20,7 +20,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="600"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
@@ -28,54 +28,182 @@
         <Label Content="Nieuws Overzicht" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="25" Margin="298,0,98.6,0.2"></Label>
 
         <materialDesign:PackIcon Kind="Search" Grid.Column="1" RenderTransformOrigin="23.8,1.548" Margin="308.2,5,0,0" Height="29" Width="40" />
+        
+        
+        <!-- ItemsControl -->
 
-        <materialDesign:Card
-  Width="300" Grid.Column="0" Grid.Row="1" Margin="30">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition
+        <DockPanel MaxHeight="900" Grid.ColumnSpan="2" Grid.RowSpan="4">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ItemsControl x:Name="icNieuwsOverzicht" Margin="50" Grid.ColumnSpan="2">
+
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="2" ClipToBounds="False" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+
+                <DataTemplate>
+
+                    <DataTemplate.Resources>
+
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontSize" Value="18"/>
+                            <!--<Setter Property="HorizontalAlignment" Value="Center"/>-->
+                        </Style>
+                    </DataTemplate.Resources>
+
+                    <materialDesign:Card
+  Width="300" Margin="30">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition
         Height="140" />
-                    <RowDefinition
+                                <RowDefinition
         Height="*" />
-                    <RowDefinition
-        Height="Auto" />
-                </Grid.RowDefinitions>
-                <StackPanel
+                                <RowDefinition
+        Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Image
+                                  Source="{Binding cover}"
+                                  Height="140"
+                                  Width="196"
+                                  Stretch="UniformToFill" />
+                            <StackPanel
       Grid.Row="1"
       Margin="8 24 8 0">
-                    <TextBlock
-        FontWeight="Bold">
-      Cycling
-                    </TextBlock>
-                    <TextBlock
+                                <TextBlock
+        FontWeight="Bold" Text="{Binding titel}">
+
+                                </TextBlock>
+                                <TextBlock
         TextWrapping="Wrap"
-        VerticalAlignment="Center">
-      A great way to keep fit and forget about the constant grind of IT.
-                    </TextBlock>
-                </StackPanel>
-                <StackPanel
+        VerticalAlignment="Center" Text="{Binding samenvatting}">
+
+                                </TextBlock>
+                            </StackPanel>
+                            <StackPanel
       HorizontalAlignment="Right"
       Grid.Row="2"
       Orientation="Horizontal"
       Margin="8">
-                    <Button
+                                <Button
         Style="{StaticResource MaterialDesignToolButton}"
         Width="30"
         Padding="2 0 2 0"
         materialDesign:RippleAssist.IsCentered="True"/>
 
-                </StackPanel>
-                <Button
+                            </StackPanel>
+                            <Button
     Style="{StaticResource MaterialDesignOutlinedButton}"
-    ToolTip="MaterialDesignOutlinedButton" Content="LEES MEER" Margin="8,0,174,16" Grid.Row="2" Click="Button_Click"/>
-                
-                <materialDesign:PackIcon
-          Kind="Pencil" RenderTransformOrigin="0.29,-13.23" Margin="262,18,0,0" Height="28" Width="23" MouseDoubleClick="PackIcon_MouseDoubleClick" />
-                <materialDesign:Chip Margin="241,90,0,18" Grid.Row="1" RenderTransformOrigin="1.552,0.581" Content="Tech" Grid.RowSpan="2"/>
-            </Grid>
-        </materialDesign:Card>
+    ToolTip="MaterialDesignOutlinedButton" Content="LEES MEER" Margin="8,0,174,16" Grid.Row="2"/>
+                            <materialDesign:PackIcon
+          Kind="Pencil" RenderTransformOrigin="0.29,-13.23" Margin="262,18,0,0" Height="28" Width="23" />
+                            <materialDesign:Chip Margin="241,90,0,18" Grid.Row="1" Content="{Binding Path=NieuwsArtikel.Categorie.naam}"  RenderTransformOrigin="1.552,0.581" Grid.RowSpan="2"/>
+                        </Grid>
+                    </materialDesign:Card>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
 
-        <materialDesign:Card
+        </ItemsControl>
+    </ScrollViewer>
+</DockPanel>
+
+
+        <!--<DataGrid x:Name="nieuwsArtikelDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="177,54,-277,26.8" Grid.RowSpan="3" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="idColumn" Binding="{Binding id}" Header="id" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="titelColumn" Binding="{Binding titel}" Header="titel" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="categorieIdColumn" Binding="{Binding categorieId}" Header="categorie Id" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="artikelColumn" Binding="{Binding artikel}" Header="artikel" Width="SizeToHeader"/>
+                <DataGridTemplateColumn x:Name="aangemaaktOpColumn" Header="aangemaakt Op" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding aangemaaktOp, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="samenvattingColumn" Binding="{Binding samenvatting}" Header="samenvatting" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="coverColumn" Binding="{Binding cover}" Header="cover" Width="SizeToHeader"/>
+                <DataGridCheckBoxColumn x:Name="plusArtikelColumn" Binding="{Binding plusArtikel}" Header="plus Artikel" Width="SizeToHeader"/>
+
+            </DataGrid.Columns>
+        </DataGrid>-->
+
+        <!--<Grid Width="auto">
+            <DataGrid x:Name="dataNieuwsArtikelen" AutoGenerateColumns="true"></DataGrid>
+        </Grid>-->
+        
+            <!--<ListBox Name="dataTemplate"
+                     ScrollViewer.VerticalScrollBarVisibility="Visible"
+                     Height="600"
+                     Width="800">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="2" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <materialDesign:Card
+  Width="300" Margin="30">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition
+        Height="140" />
+                                        <RowDefinition
+        Height="*" />
+                                        <RowDefinition
+        Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Image
+                                  Source="{Binding cover}"
+                                  Height="140"
+                                  Width="196"
+                                  Stretch="UniformToFill" />
+                                    <StackPanel
+      Grid.Row="1"
+      Margin="8 24 8 0">
+                                        <TextBlock
+        FontWeight="Bold" Text="{Binding titel}">
+
+                                        </TextBlock>
+                                        <TextBlock
+        TextWrapping="Wrap"
+        VerticalAlignment="Center" Text="{Binding samenvatting}">
+
+                                        </TextBlock>
+                                    </StackPanel>
+                                    <StackPanel
+      HorizontalAlignment="Right"
+      Grid.Row="2"
+      Orientation="Horizontal"
+      Margin="8">
+                                        <Button
+        Style="{StaticResource MaterialDesignToolButton}"
+        Width="30"
+        Padding="2 0 2 0"
+        materialDesign:RippleAssist.IsCentered="True"/>
+
+                                    </StackPanel>
+                                    <Button
+    Style="{StaticResource MaterialDesignOutlinedButton}"
+    ToolTip="MaterialDesignOutlinedButton" Content="LEES MEER" Margin="8,0,174,16" Grid.Row="2"/>
+                                    <materialDesign:PackIcon
+          Kind="Pencil" RenderTransformOrigin="0.29,-13.23" Margin="262,18,0,0" Height="28" Width="23" />
+                                    <materialDesign:Chip Margin="241,90,0,18" Grid.Row="1" RenderTransformOrigin="1.552,0.581" Content="Tech" Grid.RowSpan="2"/>
+                                </Grid>
+                            </materialDesign:Card>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>-->
+
+
+
+            <!--<materialDesign:Card
   Width="300" Grid.Column="1" Grid.Row="1" Margin="30">
             <Grid>
                 <Grid.RowDefinitions>
@@ -208,7 +336,7 @@
           Kind="Pencil" RenderTransformOrigin="0.29,-13.23" Margin="262,18,0,0" Height="28" Width="23" />
                 <materialDesign:Chip Margin="241,90,0,18" Grid.Row="1" RenderTransformOrigin="1.552,0.581" Content="Tech" Grid.RowSpan="2"/>
             </Grid>
-        </materialDesign:Card>
+        </materialDesign:Card>-->
 
 
         <Button
