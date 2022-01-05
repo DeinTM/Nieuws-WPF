@@ -35,9 +35,16 @@
                     <RowDefinition
         Height="50" />
                 </Grid.RowDefinitions>
+                <Image
+                    x:Name="Afbeelding"
+      Source="{Binding Path=ImageSource}"
+      Height="250"
+      
+      Stretch="UniformToFill" />
                 <StackPanel
       Grid.Row="1"
       Margin="8 24 8 0">
+                    
                     <TextBlock
         FontWeight="Bold" x:Name="Titel">
       
