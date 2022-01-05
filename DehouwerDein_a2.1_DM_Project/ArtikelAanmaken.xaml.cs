@@ -35,33 +35,46 @@ namespace DehouwerDein_a2._1_DM_Project
             NieuwsArtikel nieuwsArtikel = new NieuwsArtikel();
             try
             {
-                nieuwsArtikel.id = 3;
+                
                 nieuwsArtikel.titel = tbTitel.Text;
                 nieuwsArtikel.artikel = tbArtikel.Text;
                 nieuwsArtikel.cover = tbUpload.Text;
+                
 
                 Categorie categorie = cbCategorie.SelectedItem as Categorie;
 
                 nieuwsArtikel.categorieId = categorie.id;
-
-                Auteur auteur = new Auteur
-                {
-
-                    // Id wordt vast ingesteld om het project te vereenvoudigen...
-                    gebruikerId = 1,
-                    nieuwsArtikelId = nieuwsArtikel.id
-                };
-
-
-
                 nieuwsArtikel.aangemaaktOp = DateTime.Now;
                 nieuwsArtikel.plusArtikel = false;
                 nieuwsArtikel.samenvatting = tbArtikel.Text;
 
-                DatabaseOperations.ToevoegenArtikel(nieuwsArtikel);
-                DatabaseOperations.ToevoegenAuteur(auteur);
+               /* if (nieuwsArtikel.isGeldig())
+                {
 
-                MessageBox.Show("Done!");
+                }*/
+
+                int artikelOk = DatabaseOperations.ToevoegenArtikel(nieuwsArtikel);
+
+                Auteur auteur = new Auteur
+                {
+
+                    // Id gaat werken met randoms omdat er geen identity is voor een gebruiker
+                    gebruikerId = 2,
+                    nieuwsArtikelId = nieuwsArtikel.id
+                };
+
+                int auteurOk = DatabaseOperations.ToevoegenAuteur(auteur);
+
+                if (artikelOk > 0 && auteurOk > 0)
+                {
+                    MessageBox.Show("Done!");
+                }
+                else
+                {
+                    MessageBox.Show("Oeps!");
+                }
+
+                
             }
             catch (Exception ex)
             {

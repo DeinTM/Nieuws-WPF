@@ -54,7 +54,7 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
             }
             catch (Exception ex)
             {
-                //FileOperations.FoutLoggen(ex);
+                FileOperations.FoutLoggen(ex);
                 return 0;
             }
         }
@@ -73,7 +73,7 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
             }
             catch (Exception ex)
             {
-                //FileOperations.FoutLoggen(ex);
+                FileOperations.FoutLoggen(ex);
                 return 0;
             }
         }

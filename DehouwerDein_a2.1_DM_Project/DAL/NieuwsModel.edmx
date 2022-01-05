@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nieuwsArtikelId" Type="int" Nullable="false" />
           <Property Name="gebruikerId" Type="int" Nullable="false" />
         </EntityType>
@@ -17,14 +17,14 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="naam" Type="varchar" MaxLength="250" Nullable="false" />
         </EntityType>
         <EntityType Name="Gebruiker">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="naam" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="voornaam" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="geslacht" Type="varchar" MaxLength="6" Nullable="false" />
@@ -40,7 +40,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="titel" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="categorieId" Type="int" Nullable="false" />
           <Property Name="artikel" Type="varchar" MaxLength="250" Nullable="false" />
@@ -53,7 +53,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="aangemaaktOp" Type="datetime" Nullable="false" />
           <Property Name="gebruikerId" Type="int" Nullable="false" />
           <Property Name="nieuwsArtikelId" Type="int" Nullable="false" />
@@ -156,25 +156,25 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nieuwsArtikelId" Type="Int32" Nullable="false" />
           <Property Name="gebruikerId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="NieuwsArtikels" Relationship="Self.FK_40" FromRole="Auteur" ToRole="NieuwsArtikel" />
-          <NavigationProperty Name="Gebruikers" Relationship="Self.FK_61" FromRole="Auteur" ToRole="Gebruiker" />
+          <NavigationProperty Name="NieuwsArtikel" Relationship="Self.FK_40" FromRole="Auteur" ToRole="NieuwsArtikel" />
+          <NavigationProperty Name="Gebruiker" Relationship="Self.FK_61" FromRole="Auteur" ToRole="Gebruiker" />
         </EntityType>
         <EntityType Name="Categorie">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="naam" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="NieuwsArtikel" Relationship="Self.FK_80" FromRole="Categorie" ToRole="NieuwsArtikel" />
+          <NavigationProperty Name="NieuwsArtikels" Relationship="Self.FK_80" FromRole="Categorie" ToRole="NieuwsArtikel" />
         </EntityType>
         <EntityType Name="Gebruiker">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="naam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="voornaam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="geslacht" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
@@ -185,14 +185,14 @@
           <Property Name="avatar" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="abonnee" Type="Boolean" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Auteur" Relationship="Self.FK_61" FromRole="Gebruiker" ToRole="Auteur" />
-          <NavigationProperty Name="Reactie" Relationship="Self.FK_73" FromRole="Gebruiker" ToRole="Reactie" />
+          <NavigationProperty Name="Auteurs" Relationship="Self.FK_61" FromRole="Gebruiker" ToRole="Auteur" />
+          <NavigationProperty Name="Reacties" Relationship="Self.FK_73" FromRole="Gebruiker" ToRole="Reactie" />
         </EntityType>
         <EntityType Name="NieuwsArtikel">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="titel" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="categorieId" Type="Int32" Nullable="false" />
           <Property Name="artikel" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
@@ -200,22 +200,22 @@
           <Property Name="samenvatting" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cover" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="plusArtikel" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Auteur" Relationship="Self.FK_40" FromRole="NieuwsArtikel" ToRole="Auteur" />
+          <NavigationProperty Name="Auteurs" Relationship="Self.FK_40" FromRole="NieuwsArtikel" ToRole="Auteur" />
           <NavigationProperty Name="Categorie" Relationship="Self.FK_80" FromRole="NieuwsArtikel" ToRole="Categorie" />
-          <NavigationProperty Name="Reactie" Relationship="Self.FK_70" FromRole="NieuwsArtikel" ToRole="Reactie" />
+          <NavigationProperty Name="Reacties" Relationship="Self.FK_70" FromRole="NieuwsArtikel" ToRole="Reactie" />
         </EntityType>
         <EntityType Name="Reactie">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="aangemaaktOp" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="gebruikerId" Type="Int32" Nullable="false" />
           <Property Name="nieuwsArtikelId" Type="Int32" Nullable="false" />
           <Property Name="reactie1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="scorePunten" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Gebruikers" Relationship="Self.FK_73" FromRole="Reactie" ToRole="Gebruiker" />
-          <NavigationProperty Name="NieuwsArtikels" Relationship="Self.FK_70" FromRole="Reactie" ToRole="NieuwsArtikel" />
+          <NavigationProperty Name="Gebruiker" Relationship="Self.FK_73" FromRole="Reactie" ToRole="Gebruiker" />
+          <NavigationProperty Name="NieuwsArtikel" Relationship="Self.FK_70" FromRole="Reactie" ToRole="NieuwsArtikel" />
         </EntityType>
         <Association Name="FK_40">
           <End Role="NieuwsArtikel" Type="Self.NieuwsArtikel" Multiplicity="1" />

@@ -135,6 +135,7 @@
       <DependentUpon>NieuwsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\DatabaseOperations.cs" />
+    <Compile Include="DAL\FileOperations.cs" />
     <Compile Include="DAL\Gebruiker.cs">
       <DependentUpon>NieuwsModel.tt</DependentUpon>
     </Compile>

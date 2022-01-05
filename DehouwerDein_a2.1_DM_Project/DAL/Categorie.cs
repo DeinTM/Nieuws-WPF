@@ -17,13 +17,13 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Categorie()
         {
-            this.NieuwsArtikel = new HashSet<NieuwsArtikel>();
+            this.NieuwsArtikels = new HashSet<NieuwsArtikel>();
         }
     
         public int id { get; set; }
         public string naam { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NieuwsArtikel> NieuwsArtikel { get; set; }
+        public virtual ICollection<NieuwsArtikel> NieuwsArtikels { get; set; }
     }
 }

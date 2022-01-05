@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nieuwsArtikelId" Type="int" Nullable="false" />
     <Property Name="gebruikerId" Type="int" Nullable="false" />
   </EntityType>
@@ -12,14 +12,14 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="naam" Type="varchar" MaxLength="250" Nullable="false" />
   </EntityType>
   <EntityType Name="Gebruiker">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="naam" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="voornaam" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="geslacht" Type="varchar" MaxLength="6" Nullable="false" />
@@ -35,7 +35,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="titel" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="categorieId" Type="int" Nullable="false" />
     <Property Name="artikel" Type="varchar" MaxLength="250" Nullable="false" />
@@ -48,7 +48,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="aangemaaktOp" Type="datetime" Nullable="false" />
     <Property Name="gebruikerId" Type="int" Nullable="false" />
     <Property Name="nieuwsArtikelId" Type="int" Nullable="false" />

@@ -21,7 +21,7 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
         public string reactie1 { get; set; }
         public int scorePunten { get; set; }
     
-        public virtual Gebruiker Gebruikers { get; set; }
-        public virtual NieuwsArtikel NieuwsArtikels { get; set; }
+        public virtual Gebruiker Gebruiker { get; set; }
+        public virtual NieuwsArtikel NieuwsArtikel { get; set; }
     }
 }

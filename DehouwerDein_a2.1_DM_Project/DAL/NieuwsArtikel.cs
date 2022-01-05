@@ -17,8 +17,8 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NieuwsArtikel()
         {
-            this.Auteur = new HashSet<Auteur>();
-            this.Reactie = new HashSet<Reactie>();
+            this.Auteurs = new HashSet<Auteur>();
+            this.Reacties = new HashSet<Reactie>();
         }
     
         public int id { get; set; }
@@ -31,9 +31,9 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
         public bool plusArtikel { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Auteur> Auteur { get; set; }
+        public virtual ICollection<Auteur> Auteurs { get; set; }
         public virtual Categorie Categorie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reactie> Reactie { get; set; }
+        public virtual ICollection<Reactie> Reacties { get; set; }
     }
 }
