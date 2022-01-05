@@ -48,6 +48,15 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
             }
         }
 
+        public static Auteur OphalenAuteur(int artikelID)
+        {
+            using (NieuwsEntities entities = new NieuwsEntities())
+            {
+                return entities.Auteurs
+                    .Where(x => x.nieuwsArtikelId == artikelID).FirstOrDefault();
+            }
+        }
+
         // Creëeropdrachten
 
         public static int ToevoegenArtikel(NieuwsArtikel nieuwsArtikel)
@@ -109,5 +118,43 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
         }
 
         // Verwijderopdrachten
+
+        public static int VerwijderenNieuwsArtikel(NieuwsArtikel nieuwsArtikel)
+        {
+            try
+            {
+                using (NieuwsEntities nieuwsEntities = new NieuwsEntities())
+                {
+
+                    nieuwsEntities.Entry(nieuwsArtikel).State = EntityState.Deleted;
+                    return nieuwsEntities.SaveChanges();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.FoutLoggen(ex);
+                return 0;
+            }
+        }
+
+        public static int VerwijderenAuteur(Auteur auteur)
+        {
+            try
+            {
+                using (NieuwsEntities nieuwsEntities = new NieuwsEntities())
+                {
+
+                    nieuwsEntities.Entry(auteur).State = EntityState.Deleted;
+                    return nieuwsEntities.SaveChanges();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.FoutLoggen(ex);
+                return 0;
+            }
+        }
     }
 }

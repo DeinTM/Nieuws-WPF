@@ -57,8 +57,41 @@ namespace DehouwerDein_a2._1_DM_Project
             tbTitelBewerken.Text = data.titel;
             tbArtikelBewerken.Text = data.artikel;
             tbUploadBewerken.Text = data.cover;
-            /*Categorie categorie = data.categorieId as Categorie;
-            cbCategorieBewerken.SelectedIndex = ;*/
+            cbCategorieBewerken.ItemsSource = DatabaseOperations.OphalenCategorieen();
+            cbCategorieBewerken.DisplayMemberPath = "naam";
+            cbCategorieBewerken.SelectedIndex = data.categorieId - 1;
+        }
+
+        private void btnArtikelVerwijderen_Click(object sender, RoutedEventArgs e)
+        {
+            NieuwsArtikel data = DatabaseOperations.OphalenNieuwsArtikel(8);
+            Auteur auteur = DatabaseOperations.OphalenAuteur(8);
+            int okAuteur = DatabaseOperations.VerwijderenAuteur(auteur);
+            int okNieuwsArtikel = DatabaseOperations.VerwijderenNieuwsArtikel(data);
+            if (okAuteur > 0 && okNieuwsArtikel > 0)
+            {
+                btnArtikelVerwijderen.IsEnabled = false;
+                btnPostBewerken.IsEnabled = false;
+                btnUploadBewerken.IsEnabled = false;
+                tbArtikelBewerken.IsEnabled = false;
+                tbTitelBewerken.IsEnabled = false;
+                tbUploadBewerken.IsEnabled = false;
+                cbCategorieBewerken.IsEnabled = false;
+                Wissen();
+                MessageBox.Show("Artikel is verwijderd!");
+            }
+            else
+            {
+                MessageBox.Show("Artikel is niet verwijderd!");
+            }
+        }
+
+        private void Wissen()
+        {
+            tbTitelBewerken.Text = "";
+            tbArtikelBewerken.Text = "";
+            tbUploadBewerken.Text = "";
+            cbCategorieBewerken.SelectedIndex = -1;
         }
     }
 }
