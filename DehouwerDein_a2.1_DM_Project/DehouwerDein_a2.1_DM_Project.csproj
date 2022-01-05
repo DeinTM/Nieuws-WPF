@@ -135,6 +135,7 @@
       <DependentUpon>NieuwsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\DatabaseOperations.cs" />
+    <Compile Include="DAL\FileOperations.cs" />
     <Compile Include="DAL\Gebruiker.cs">
       <DependentUpon>NieuwsModel.tt</DependentUpon>
     </Compile>
@@ -168,6 +169,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Basisklasse.cs" />
+    <Compile Include="NieuwsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NieuwsDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -191,6 +198,17 @@
     </EntityDeploy>
     <None Include="DAL\NieuwsModel.edmx.diagram">
       <DependentUpon>NieuwsModel.edmx</DependentUpon>
+    </None>
+    <None Include="NieuwsDataSet.xsc">
+      <DependentUpon>NieuwsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="NieuwsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NieuwsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NieuwsDataSet.xss">
+      <DependentUpon>NieuwsDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

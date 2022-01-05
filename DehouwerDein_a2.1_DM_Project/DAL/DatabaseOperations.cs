@@ -19,6 +19,25 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
             }
         }
 
+        public static List<Categorie> OphalenCategorieen()
+        {
+            using (NieuwsEntities entities = new NieuwsEntities())
+            {
+                var query = entities.Categories;
+                return query.ToList();
+            }
+        }
+
+        public static List<NieuwsArtikel> OphalenNieuwsArtikelViaID(int artikelID)
+        {
+            using (NieuwsEntities entities = new NieuwsEntities())
+            {
+                return entities.NieuwsArtikels
+                    .Where(x => x.id == artikelID)
+                    .ToList();
+            }
+        }
+
         // Creëeropdrachten
 
         public static int ToevoegenArtikel(NieuwsArtikel nieuwsArtikel)
@@ -35,7 +54,26 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
             }
             catch (Exception ex)
             {
-                //FileOperations.FoutLoggen(ex);
+                FileOperations.FoutLoggen(ex);
+                return 0;
+            }
+        }
+
+        public static int ToevoegenAuteur(Auteur auteur)
+        {
+            try
+            {
+                using (NieuwsEntities entities = new NieuwsEntities())
+                {
+
+                    entities.Auteurs.Add(auteur);
+                    return entities.SaveChanges();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.FoutLoggen(ex);
                 return 0;
             }
         }

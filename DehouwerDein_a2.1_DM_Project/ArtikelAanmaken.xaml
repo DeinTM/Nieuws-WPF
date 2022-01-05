@@ -11,7 +11,7 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="Artikel Aanmaken" Height="1000" Width="800" ScrollViewer.VerticalScrollBarVisibility="Visible">
+        Title="Artikel Aanmaken" Height="1000" Width="800" ScrollViewer.VerticalScrollBarVisibility="Visible" Loaded="Window_Loaded">
     <Grid Margin="50" Height="auto">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -91,18 +91,6 @@
           Grid.Column="0"
           Grid.Row="7"
             Width="250" RenderTransformOrigin="-0.853,0.532" Margin="0,0.2,443.6,96.4" Grid.RowSpan="2">
-            <ComboBoxItem>
-                Android
-            </ComboBoxItem>
-            <ComboBoxItem>
-                iOS
-            </ComboBoxItem>
-            <ComboBoxItem>
-                Linux
-            </ComboBoxItem>
-            <ComboBoxItem>
-                Windows
-            </ComboBoxItem>
         </ComboBox>
 
 
