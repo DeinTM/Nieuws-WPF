@@ -1,5 +1,6 @@
 ﻿using DehouwerDein_a2._1_DM_Project.DAL;
 using DehouwerDein_a2._1_DM_Project.Model;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,10 @@ namespace DehouwerDein_a2._1_DM_Project
     /// </summary>
     public partial class ArtikelAanmaken : Window
     {
+
+        private string fullPath;
+        private BitmapImage image;
+
         public ArtikelAanmaken()
         {
             InitializeComponent();
@@ -28,7 +33,17 @@ namespace DehouwerDein_a2._1_DM_Project
 
         private void btnUpload_Click(object sender, RoutedEventArgs e)
         {
-
+            OpenFileDialog op = new OpenFileDialog();
+            op.Title = "Selecteer een afbeelding";
+            op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+              "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+              "Portable Network Graphic (*.png)|*.png";
+            if (op.ShowDialog() == true)
+            {
+                image = new BitmapImage(new Uri(op.FileName));
+                fullPath = op.FileName;
+                tbUpload.Text = fullPath;
+            }
         }
 
         private void btnPost_Click(object sender, RoutedEventArgs e)
@@ -47,7 +62,7 @@ namespace DehouwerDein_a2._1_DM_Project
 
                 nieuwsArtikel.titel = tbTitel.Text;
                 nieuwsArtikel.artikel = tbArtikel.Text;
-                nieuwsArtikel.cover = tbUpload.Text;
+                nieuwsArtikel.cover = image.ToString();
                 
 
                 Categorie categorie = cbCategorie.SelectedItem as Categorie;
