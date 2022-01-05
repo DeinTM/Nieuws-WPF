@@ -133,7 +133,7 @@ namespace DehouwerDein_a2._1_DM_Project
             }
             if (columnName == "tbArtikel" && string.IsNullOrWhiteSpace(tbArtikel.Text))
             {
-                return "Titel mag niet leeg zijn!" + Environment.NewLine;
+                return "Artikel mag niet leeg zijn!" + Environment.NewLine;
             }
             if (columnName == "tbArtikel" && tbArtikel.Text.Length < 25)
             {
