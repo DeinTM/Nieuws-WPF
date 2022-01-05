@@ -49,6 +49,44 @@ namespace DehouwerDein_a2._1_DM_Project
         private void btnPostBewerken_Click(object sender, RoutedEventArgs e)
         {
 
+            NieuwsArtikel nieuwsArtikel = DatabaseOperations.OphalenNieuwsArtikel(7);
+
+            string foutmelding = Valideer("tbTitelBewerken");
+            foutmelding += Valideer("tbArtikelBewerken");
+            foutmelding += Valideer("tbUploadBewerken");
+            foutmelding += Valideer("cbCategorieBewerken");
+
+            if (string.IsNullOrWhiteSpace(foutmelding))
+            {
+
+                nieuwsArtikel.titel = tbTitelBewerken.Text;
+                nieuwsArtikel.artikel = tbArtikelBewerken.Text;
+                nieuwsArtikel.cover = tbUploadBewerken.Text;
+
+
+                Categorie categorie = cbCategorieBewerken.SelectedItem as Categorie;
+
+                nieuwsArtikel.categorieId = categorie.id;
+                nieuwsArtikel.aangemaaktOp = DateTime.Now;
+                nieuwsArtikel.plusArtikel = false;
+                nieuwsArtikel.samenvatting = tbArtikelBewerken.Text;
+
+                int artikelOk = DatabaseOperations.AanpassenNieuwsArtikel(nieuwsArtikel);
+
+                if (artikelOk > 0)
+                {
+                    MessageBox.Show("Artikel is bijgewerkt!");
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Artikel is niet bijgewerkt!");
+                }
+            }
+            else
+            {
+                MessageBox.Show(foutmelding);
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -92,6 +130,35 @@ namespace DehouwerDein_a2._1_DM_Project
             tbArtikelBewerken.Text = "";
             tbUploadBewerken.Text = "";
             cbCategorieBewerken.SelectedIndex = -1;
+        }
+
+        private string Valideer(string columnName)
+        {
+            if (columnName == "tbTitelBewerken" && string.IsNullOrWhiteSpace(tbTitelBewerken.Text))
+            {
+                return "Titel mag niet leeg zijn!" + Environment.NewLine;
+            }
+            if (columnName == "tbTitelBewerken" && tbTitelBewerken.Text.Length < 5)
+            {
+                return "Titel moet meer dan 5 karakters lang zijn!" + Environment.NewLine;
+            }
+            if (columnName == "tbArtikelBewerken" && string.IsNullOrWhiteSpace(tbArtikelBewerken.Text))
+            {
+                return "Artikel mag niet leeg zijn!" + Environment.NewLine;
+            }
+            if (columnName == "tbArtikelBewerken" && tbArtikelBewerken.Text.Length < 25)
+            {
+                return "Het artikel moet meer dan 25 karakters bevatten!" + Environment.NewLine;
+            }
+            if (columnName == "tbUploadBewerken" && string.IsNullOrWhiteSpace(tbUploadBewerken.Text))
+            {
+                return "Er moet een afbeelding geüpload worden!" + Environment.NewLine;
+            }
+            if (columnName == "cbCategorieBewerken" && cbCategorieBewerken.SelectedItem == null)
+            {
+                return "Selecteer een categorie!" + Environment.NewLine;
+            }
+            return "";
         }
     }
 }
