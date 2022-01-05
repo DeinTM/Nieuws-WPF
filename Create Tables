@@ -1,7 +1,7 @@
 -- ************************************** [dbo].[Gebruiker]
 CREATE TABLE [dbo].[Gebruiker]
 (
- [id]             int NOT NULL ,
+ [id]             int IDENTITY(1,1) NOT NULL  ,
  [naam]          varchar(100) NOT NULL ,
  [voornaam]      varchar(100) NOT NULL ,
  [geslacht]      varchar(6) NOT NULL ,
@@ -21,7 +21,7 @@ GO
 -- ************************************** [dbo].[Bericht]
 CREATE TABLE [dbo].[Bericht]
 (
- [id]            int NOT NULL ,
+ [id]            int IDENTITY(1,1) NOT NULL ,
  [onderwerp]     varchar(250) NOT NULL ,
  [ontvangerId]   int NOT NULL ,
  [verstuurderId] int  NOT NULL ,
@@ -53,7 +53,7 @@ GO
 -- ************************************** [dbo].[Categorie]
 CREATE TABLE [dbo].[Categorie]
 (
- [id]   int NOT NULL ,
+ [id]   int IDENTITY(1,1) NOT NULL ,
  [naam] varchar(250) NOT NULL ,
 
 
@@ -64,7 +64,7 @@ GO
 -- ************************************** [dbo].[NieuwsArtikel]
 CREATE TABLE [dbo].[NieuwsArtikel]
 (
- [id]           int NOT NULL ,
+ [id]           int IDENTITY(1,1) NOT NULL ,
  [titel]        varchar(250) NOT NULL ,
  [categorieId]  int NOT NULL ,
  [artikel]      varchar(250) NOT NULL ,
@@ -90,7 +90,7 @@ GO
 -- ************************************** [dbo].[Auteur]
 CREATE TABLE [dbo].[Auteur]
 (
- [id]              int NOT NULL ,
+ [id]              int IDENTITY(1,1) NOT NULL ,
  [nieuwsArtikelId] int NOT NULL ,
  [gebruikerId]     int NOT NULL ,
 
@@ -120,7 +120,7 @@ GO
 -- ************************************** [dbo].[Reactie]
 CREATE TABLE [dbo].[Reactie]
 (
- [id]              int NOT NULL ,
+ [id]              int IDENTITY(1,1) NOT NULL ,
  [aangemaaktOp]    datetime NOT NULL ,
  [gebruikerId]     int NOT NULL ,
  [nieuwsArtikelId] int NOT NULL ,
@@ -152,7 +152,7 @@ GO
 -- ************************************** [dbo].[Advertentie]
 CREATE TABLE [dbo].[Advertentie]
 (
- [id]         int NOT NULL ,
+ [id]         int IDENTITY(1,1) NOT NULL ,
  [afbeelding] varchar(250) NOT NULL ,
  [url]        varchar(250) NOT NULL ,
  [tijdsduur]  datetime NOT NULL ,
@@ -166,7 +166,7 @@ GO
 -- ************************************** [dbo].[NieuwsArtikelAdvertentie]
 CREATE TABLE [dbo].[NieuwsArtikelAdvertentie]
 (
- [id]              int NOT NULL ,
+ [id]              int IDENTITY(1,1) NOT NULL ,
  [advertentieId]   int NOT NULL ,
  [nieuwsArtikelId] int NOT NULL ,
 
@@ -191,6 +191,3 @@ CREATE NONCLUSTERED INDEX [FK_95] ON [dbo].[NieuwsArtikelAdvertentie]
  )
 
 GO
-
-
-
