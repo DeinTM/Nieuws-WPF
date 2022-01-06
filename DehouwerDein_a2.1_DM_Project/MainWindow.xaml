@@ -95,13 +95,13 @@
         materialDesign:RippleAssist.IsCentered="True"/>
 
                             </StackPanel>
-                            <Button
+                                    <Button x:Name="btnLeesMeer"
     Style="{StaticResource MaterialDesignOutlinedButton}"
-    ToolTip="MaterialDesignOutlinedButton" Content="LEES MEER" Margin="8,0,174,16" Grid.Row="2"/>
-                                    <materialDesign:PackIcon x:Name="btnBewerken" 
+    ToolTip="{Binding id}" Tag="{Binding id}"  Margin="8,0,174,16" Grid.Row="2" Click="btnLeesMeer_Click">LEES MEER</Button>
+                                    <materialDesign:PackIcon Name="btnBewerken" Tag="{Binding id}"
           Kind="Pencil" RenderTransformOrigin="0.29,-13.23" Margin="262,18,0,0" Height="28" Width="23" MouseDown="btnBewerken_MouseDown" Cursor="Hand" />
                                     
-                                    <materialDesign:Chip Margin="241,90,0,18" Grid.Row="1" Content="{Binding Path=NieuwsArtikel.Categorie.naam}"  RenderTransformOrigin="1.552,0.581" Grid.RowSpan="2"/>
+                                    <materialDesign:Chip Content="{Binding NieuwsArtikels.naam}"  Margin="241,90,0,18" Grid.Row="1"  RenderTransformOrigin="1.552,0.581" Grid.RowSpan="2"/>
                         </Grid>
                     </materialDesign:Card>
                 </DataTemplate>
