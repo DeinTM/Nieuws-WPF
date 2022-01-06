@@ -21,6 +21,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         
@@ -70,45 +71,64 @@
         Width="30"
         Padding="2 0 2 0"
         materialDesign:RippleAssist.IsCentered="True">
-                        <materialDesign:PackIcon
-          Kind="Pencil" />
+                        <materialDesign:PackIcon Kind="Pencil"
+                                                 Tag="{Binding ArtikelId}"
+                                                 ToolTip="Bewerk dit artikel"
+                                                 Cursor="Hand"
+                                                 x:Name="btnBewerken"
+                                                 MouseDown="btnBewerken_MouseDown"/>
                     </Button>
                 </StackPanel>
             </Grid>
         </materialDesign:Card>
 
 
-        <!-- and here's another -->
-        <ItemsControl
-  ItemsSource="{Binding Items2}"
-  Grid.IsSharedSizeScope="True" Grid.Row="2">
+        <!-- Reacties -->
+        <Label Content="Reacties" 
+               Grid.Row="2" 
+               Margin="50" 
+               FontSize="25" 
+               FontWeight="Bold">
+            
+        </Label>
+        <ItemsControl Grid.IsSharedSizeScope="True" 
+                      Grid.Row="3"
+                      x:Name="icReactieOverzicht"
+                      Margin="50 10 50 10"
+                      >
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Border
-        x:Name="Border"
-        Padding="8"
-        BorderThickness="0 0 0 1"
-        BorderBrush="{DynamicResource MaterialDesignDivider}">
+                    <Border x:Name="Border"
+                            Padding="8"
+                            BorderThickness="0 0 0 1"
+                            BorderBrush="{DynamicResource MaterialDesignDivider}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition
               SharedSizeGroup="Checkerz" />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <ToggleButton
-            VerticalAlignment="Center"
-            IsChecked="{Binding IsSelected}"
-            Style="{StaticResource MaterialDesignActionLightToggleButton}"
-            Content="{Binding Code}" />
+                            <Ellipse Width="50" Height="50">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding Gebruiker.avatar}" />
+                                </Ellipse.Fill>
+                            </Ellipse>
                             <StackPanel
             Margin="8 0 0 0"
             Grid.Column="1">
+                                <StackPanel Orientation="Horizontal">
                                 <TextBlock
               FontWeight="Bold"
-              Text="Test" />
-                                
+              Text="{Binding Gebruiker.naam}"
+                                    Margin="0 0 5 0"/>
+                                    
                                 <TextBlock
-              Text="Tekst" />
+              FontWeight="Bold"
+              Text="{Binding Gebruiker.voornaam}" />
+                                </StackPanel>
+
+                                <TextBlock
+              Text="{Binding reactie1}" />
                             </StackPanel>
                         </Grid>
                     </Border>
