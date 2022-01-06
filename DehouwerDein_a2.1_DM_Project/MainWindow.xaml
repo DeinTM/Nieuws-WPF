@@ -41,14 +41,6 @@
                HorizontalAlignment="Center">
         </Label>
 
-        <materialDesign:PackIcon Kind="Search" 
-                                 Grid.Column="1" 
-                                 RenderTransformOrigin="23.8,1.548" 
-                                 Margin="308.2,5,0,0" 
-                                 Height="29" 
-                                 Width="40" />
-        
-        
         <!-- ItemsControl -->
 
         <DockPanel MaxHeight="900" 
@@ -136,7 +128,8 @@
 
                                     <materialDesign:Chip x:Name="chipCategorie" 
                                                          Content="{Binding Categorie.naam}"  
-                                                         Margin="201,120,0,0" Grid.Row="1"  
+                                                         Margin="190,100,0,18" 
+                                                         Grid.Row="1"  
                                                          RenderTransformOrigin="1.552,0.581" 
                                                          Grid.RowSpan="2"
                                                          Cursor="Arrow"/>
