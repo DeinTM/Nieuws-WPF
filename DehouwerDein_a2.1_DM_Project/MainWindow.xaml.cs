@@ -57,5 +57,10 @@ namespace DehouwerDein_a2._1_DM_Project
             GebruikersLijst gebruikersLijst = new GebruikersLijst();
             gebruikersLijst.ShowDialog();
         }
+
+        private void btnBewerken_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

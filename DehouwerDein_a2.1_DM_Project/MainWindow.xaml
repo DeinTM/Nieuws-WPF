@@ -98,9 +98,10 @@
                             <Button
     Style="{StaticResource MaterialDesignOutlinedButton}"
     ToolTip="MaterialDesignOutlinedButton" Content="LEES MEER" Margin="8,0,174,16" Grid.Row="2"/>
-                            <materialDesign:PackIcon
-          Kind="Pencil" RenderTransformOrigin="0.29,-13.23" Margin="262,18,0,0" Height="28" Width="23" />
-                            <materialDesign:Chip Margin="241,90,0,18" Grid.Row="1" Content="{Binding Path=NieuwsArtikel.Categorie.naam}"  RenderTransformOrigin="1.552,0.581" Grid.RowSpan="2"/>
+                                    <materialDesign:PackIcon x:Name="btnBewerken" 
+          Kind="Pencil" RenderTransformOrigin="0.29,-13.23" Margin="262,18,0,0" Height="28" Width="23" MouseDown="btnBewerken_MouseDown" Cursor="Hand" />
+                                    
+                                    <materialDesign:Chip Margin="241,90,0,18" Grid.Row="1" Content="{Binding Path=NieuwsArtikel.Categorie.naam}"  RenderTransformOrigin="1.552,0.581" Grid.RowSpan="2"/>
                         </Grid>
                     </materialDesign:Card>
                 </DataTemplate>
