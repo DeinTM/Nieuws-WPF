@@ -67,6 +67,17 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
             }
         }
 
+        public static List<Reactie> OphalenReactiesViaID(int artikelID)
+        {
+            using (NieuwsEntities entities = new NieuwsEntities())
+            {
+                return entities.Reacties
+                    .Where(x => x.nieuwsArtikelId == artikelID)
+                    .Include(y => y.Gebruiker)
+                    .ToList();
+            }
+        }
+
         // Creëeropdrachten
 
         public static int ToevoegenArtikel(NieuwsArtikel nieuwsArtikel)

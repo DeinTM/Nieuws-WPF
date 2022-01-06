@@ -32,9 +32,6 @@ namespace DehouwerDein_a2._1_DM_Project
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             icNieuwsOverzicht.ItemsSource = DatabaseOperations.OphalenNieuwsArtikelen();
-            
-            //DatabaseOperations.OphalenCategorieen()
-
         }
 
         private void btnNieuwArtikel_Click(object sender, RoutedEventArgs e)
@@ -62,6 +59,11 @@ namespace DehouwerDein_a2._1_DM_Project
             var artikelId = ((Button)sender).Tag;
             ArtikelWindow artikelWindow = new ArtikelWindow((int)artikelId);
             artikelWindow.ShowDialog();
+        }
+
+        private void btnVernieuwen_Click(object sender, RoutedEventArgs e)
+        {
+            icNieuwsOverzicht.ItemsSource = DatabaseOperations.OphalenNieuwsArtikelen();
         }
     }
 }
