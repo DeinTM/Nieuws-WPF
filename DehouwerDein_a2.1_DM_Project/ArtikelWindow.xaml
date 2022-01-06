@@ -90,6 +90,7 @@
         <ItemsControl Grid.IsSharedSizeScope="True" 
                       Grid.Row="3"
                       x:Name="icReactieOverzicht"
+                      Margin="50 10 50 10"
                       >
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
@@ -103,18 +104,31 @@
               SharedSizeGroup="Checkerz" />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <materialDesign:Chip>
-                                <materialDesign:Chip.Icon>
-                                    <Image Source="{Binding Gebruiker.avatar}" />
-                                </materialDesign:Chip.Icon>
-                            </materialDesign:Chip>
+                            <Ellipse Width="50" Height="50">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="Assets/Images/female-1.jpg" />
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <!--<materialDesign:Chip>
+                                
+                                    <Image Source="Assets/Images/female-1.jpg" 
+                                           Stretch="Fill"/>
+                                
+                            </materialDesign:Chip>-->
                             <StackPanel
             Margin="8 0 0 0"
             Grid.Column="1">
+                                <StackPanel Orientation="Horizontal">
                                 <TextBlock
               FontWeight="Bold"
-              Text="{Binding Gebruiker.naam}" />
-                                
+              Text="{Binding Gebruiker.naam}"
+                                    Margin="0 0 5 0"/>
+                                    
+                                <TextBlock
+              FontWeight="Bold"
+              Text="{Binding Gebruiker.voornaam}" />
+                                </StackPanel>
+
                                 <TextBlock
               Text="{Binding reactie1}" />
                             </StackPanel>
