@@ -44,6 +44,7 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
             using (NieuwsEntities entities = new NieuwsEntities())
             {
                 return entities.NieuwsArtikels
+                    .Include(x => x.Categorie)
                     .ToList();
             }
         }
@@ -63,6 +64,17 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
             {
                 return entities.Auteurs
                     .Where(x => x.nieuwsArtikelId == artikelID).FirstOrDefault();
+            }
+        }
+
+        public static List<Reactie> OphalenReactiesViaID(int artikelID)
+        {
+            using (NieuwsEntities entities = new NieuwsEntities())
+            {
+                return entities.Reacties
+                    .Where(x => x.nieuwsArtikelId == artikelID)
+                    .Include(y => y.Gebruiker)
+                    .ToList();
             }
         }
 

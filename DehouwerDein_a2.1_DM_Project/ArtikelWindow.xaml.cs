@@ -20,14 +20,16 @@ namespace DehouwerDein_a2._1_DM_Project
     /// </summary>
     public partial class ArtikelWindow : Window
     {
-        public ArtikelWindow()
+        public int ArtikelId { get; set; }
+        public ArtikelWindow(int artikelId)
         {
             InitializeComponent();
+            ArtikelId = artikelId;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            NieuwsArtikel data = DatabaseOperations.OphalenNieuwsArtikel(7);
+            NieuwsArtikel data = DatabaseOperations.OphalenNieuwsArtikel(ArtikelId);
 
             Titel.Text = data.titel;
             Artikel.Text = data.artikel;

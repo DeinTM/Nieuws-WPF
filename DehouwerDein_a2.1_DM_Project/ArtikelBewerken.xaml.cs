@@ -26,9 +26,12 @@ namespace DehouwerDein_a2._1_DM_Project
         private string fullPath;
         private BitmapImage image;
 
-        public ArtikelBewerken()
+        private int _artikelId { get; set; }
+
+        public ArtikelBewerken(int artikelId)
         {
             InitializeComponent();
+            _artikelId = artikelId;
         }
 
         private void btnUploadBewerken_Click(object sender, RoutedEventArgs e)
@@ -49,7 +52,7 @@ namespace DehouwerDein_a2._1_DM_Project
         private void btnPostBewerken_Click(object sender, RoutedEventArgs e)
         {
 
-            NieuwsArtikel nieuwsArtikel = DatabaseOperations.OphalenNieuwsArtikel(7);
+            NieuwsArtikel nieuwsArtikel = DatabaseOperations.OphalenNieuwsArtikel(_artikelId);
 
             string foutmelding = Valideer("tbTitelBewerken");
             foutmelding += Valideer("tbArtikelBewerken");
@@ -91,7 +94,7 @@ namespace DehouwerDein_a2._1_DM_Project
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            NieuwsArtikel data = DatabaseOperations.OphalenNieuwsArtikel(7);
+            NieuwsArtikel data = DatabaseOperations.OphalenNieuwsArtikel(_artikelId);
             tbTitelBewerken.Text = data.titel;
             tbArtikelBewerken.Text = data.artikel;
             tbUploadBewerken.Text = data.cover;
@@ -102,8 +105,8 @@ namespace DehouwerDein_a2._1_DM_Project
 
         private void btnArtikelVerwijderen_Click(object sender, RoutedEventArgs e)
         {
-            NieuwsArtikel data = DatabaseOperations.OphalenNieuwsArtikel(8);
-            Auteur auteur = DatabaseOperations.OphalenAuteur(8);
+            NieuwsArtikel data = DatabaseOperations.OphalenNieuwsArtikel(_artikelId);
+            Auteur auteur = DatabaseOperations.OphalenAuteur(_artikelId);
             int okAuteur = DatabaseOperations.VerwijderenAuteur(auteur);
             int okNieuwsArtikel = DatabaseOperations.VerwijderenNieuwsArtikel(data);
             if (okAuteur > 0 && okNieuwsArtikel > 0)

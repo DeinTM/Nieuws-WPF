@@ -21,6 +21,9 @@ namespace DehouwerDein_a2._1_DM_Project
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,21 +32,6 @@ namespace DehouwerDein_a2._1_DM_Project
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             icNieuwsOverzicht.ItemsSource = DatabaseOperations.OphalenNieuwsArtikelen();
-            
-            //DatabaseOperations.OphalenCategorieen()
-
-        }
-
-        private void PackIcon_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            ArtikelBewerken artikelBewerken = new ArtikelBewerken();
-            artikelBewerken.ShowDialog();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ArtikelWindow artikelWindow = new ArtikelWindow();
-            artikelWindow.ShowDialog();
         }
 
         private void btnNieuwArtikel_Click(object sender, RoutedEventArgs e)
@@ -56,6 +44,26 @@ namespace DehouwerDein_a2._1_DM_Project
         {
             GebruikersLijst gebruikersLijst = new GebruikersLijst();
             gebruikersLijst.ShowDialog();
+        }
+
+        private void btnBewerken_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            
+            var artikelId = ((MaterialDesignThemes.Wpf.PackIcon)sender).Tag;
+            ArtikelBewerken artikelBewerken = new ArtikelBewerken((int)artikelId);
+            artikelBewerken.ShowDialog();
+        }
+
+        private void btnLeesMeer_Click(object sender, RoutedEventArgs e)
+        {
+            var artikelId = ((Button)sender).Tag;
+            ArtikelWindow artikelWindow = new ArtikelWindow((int)artikelId);
+            artikelWindow.ShowDialog();
+        }
+
+        private void btnVernieuwen_Click(object sender, RoutedEventArgs e)
+        {
+            icNieuwsOverzicht.ItemsSource = DatabaseOperations.OphalenNieuwsArtikelen();
         }
     }
 }
