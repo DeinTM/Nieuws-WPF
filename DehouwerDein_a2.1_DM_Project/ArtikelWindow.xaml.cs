@@ -33,7 +33,18 @@ namespace DehouwerDein_a2._1_DM_Project
 
             Titel.Text = data.titel;
             Artikel.Text = data.artikel;
-            Afbeelding.Source = new BitmapImage(new Uri(data.cover));
+
+            // Onderstaande code kijkt of het pad de naam header bevat en voegt hier dan het huidige pad aan toe, dit is een hack om met ingeladen data te werken.
+
+            if (data.cover.Contains("header"))
+            {
+                Afbeelding.Source = new BitmapImage(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + data.cover));
+            }
+            else
+            {
+                Afbeelding.Source = new BitmapImage(new Uri(data.cover));
+            }
+            
 
             icReactieOverzicht.ItemsSource = DatabaseOperations.OphalenReactiesViaID(ArtikelId);
         }
