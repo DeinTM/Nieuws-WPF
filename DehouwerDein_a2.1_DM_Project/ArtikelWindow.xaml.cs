@@ -37,5 +37,11 @@ namespace DehouwerDein_a2._1_DM_Project
 
             icReactieOverzicht.ItemsSource = DatabaseOperations.OphalenReactiesViaID(ArtikelId);
         }
+
+        private void btnBewerken_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ArtikelBewerken artikelBewerken = new ArtikelBewerken(ArtikelId);
+            artikelBewerken.ShowDialog();
+        }
     }
 }
