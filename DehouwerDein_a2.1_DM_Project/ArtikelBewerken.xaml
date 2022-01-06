@@ -115,7 +115,7 @@
                   materialDesign:HintAssist.HelperText="Selecteer één categorie"
                   Grid.Column="0"
                   Grid.Row="7"
-                  Width="250" 
+                  Width="250"
                   RenderTransformOrigin="-0.853,0.532" 
                   Margin="0,0.2,443.6,96.4" 
                   Grid.RowSpan="2">
