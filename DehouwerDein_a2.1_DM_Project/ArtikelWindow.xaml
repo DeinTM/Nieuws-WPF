@@ -106,15 +106,9 @@
                             </Grid.ColumnDefinitions>
                             <Ellipse Width="50" Height="50">
                                 <Ellipse.Fill>
-                                    <ImageBrush ImageSource="Assets/Images/female-1.jpg" />
+                                    <ImageBrush ImageSource="{Binding Gebruiker.avatar}" />
                                 </Ellipse.Fill>
                             </Ellipse>
-                            <!--<materialDesign:Chip>
-                                
-                                    <Image Source="Assets/Images/female-1.jpg" 
-                                           Stretch="Fill"/>
-                                
-                            </materialDesign:Chip>-->
                             <StackPanel
             Margin="8 0 0 0"
             Grid.Column="1">
