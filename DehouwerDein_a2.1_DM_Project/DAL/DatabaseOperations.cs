@@ -44,6 +44,7 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
             using (NieuwsEntities entities = new NieuwsEntities())
             {
                 return entities.NieuwsArtikels
+                    .Include(x => x.Categorie)
                     .ToList();
             }
         }

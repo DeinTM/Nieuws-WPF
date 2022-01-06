@@ -22,7 +22,7 @@ namespace DehouwerDein_a2._1_DM_Project
     public partial class MainWindow : Window
     {
 
-        // Provide list with categories
+        
 
         public MainWindow()
         {

@@ -101,7 +101,7 @@
                                     <materialDesign:PackIcon Name="btnBewerken" Tag="{Binding id}"
           Kind="Pencil" RenderTransformOrigin="0.29,-13.23" Margin="262,18,0,0" Height="28" Width="23" MouseDown="btnBewerken_MouseDown" Cursor="Hand" />
                                     
-                                    <materialDesign:Chip Content="{Binding NieuwsArtikels.naam}"  Margin="241,90,0,18" Grid.Row="1"  RenderTransformOrigin="1.552,0.581" Grid.RowSpan="2"/>
+                                    <materialDesign:Chip x:Name="chipCategorie" Content="{Binding Categorie.naam}"  Margin="241,90,0,18" Grid.Row="1"  RenderTransformOrigin="1.552,0.581" Grid.RowSpan="2"/>
                         </Grid>
                     </materialDesign:Card>
                 </DataTemplate>
