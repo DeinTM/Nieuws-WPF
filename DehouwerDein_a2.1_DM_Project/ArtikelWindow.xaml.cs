@@ -34,6 +34,14 @@ namespace DehouwerDein_a2._1_DM_Project
             Titel.Text = data.titel;
             Artikel.Text = data.artikel;
             Afbeelding.Source = new BitmapImage(new Uri(data.cover));
+
+            icReactieOverzicht.ItemsSource = DatabaseOperations.OphalenReactiesViaID(ArtikelId);
+        }
+
+        private void btnBewerken_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ArtikelBewerken artikelBewerken = new ArtikelBewerken(ArtikelId);
+            artikelBewerken.ShowDialog();
         }
     }
 }
