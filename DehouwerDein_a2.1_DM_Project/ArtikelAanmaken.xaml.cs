@@ -72,17 +72,12 @@ namespace DehouwerDein_a2._1_DM_Project
                 nieuwsArtikel.plusArtikel = false;
                 nieuwsArtikel.samenvatting = tbArtikel.Text;
 
-                /*if (nieuwsArtikel.IsGeldig())
-                {
-
-                }*/
-
                 int artikelOk = DatabaseOperations.ToevoegenArtikel(nieuwsArtikel);
 
                 Auteur auteur = new Auteur
                 {
 
-                    // Id gaat werken met randoms omdat er geen identity is voor een gebruiker
+                    // Id staat vast ingesteld omdat er geen identity is
                     gebruikerId = 2,
                     nieuwsArtikelId = nieuwsArtikel.id
                 };

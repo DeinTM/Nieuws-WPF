@@ -11,32 +11,103 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="GebruikersLijst" Height="450" Width="800" Loaded="Window_Loaded">
-    <Grid Width="auto">
-        <!--<ListView
-            x:Name="lvGebruikers"
-  ItemsSource="{Binding Items1}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn
-        DisplayMemberBinding="{Binding Avatar}"
-        Header="Avatar" Width="auto" />
-                    <GridViewColumn
-        DisplayMemberBinding="{Binding Name}"
-        Header="Naam" Width="auto" />
-                    <GridViewColumn
-        DisplayMemberBinding="{Binding Email}"
-        Header="Email" Width="auto" />
-                    <GridViewColumn
-        DisplayMemberBinding="{Binding Abonnee}"
-        Header="Abonnee" Width="auto" />
-                    <GridViewColumn
-        DisplayMemberBinding="{Binding Homepage}"
-        Header="Homepage" Width="auto" />
-                </GridView>
-            </ListView.View>
-        </ListView>-->
+        Title="GebruikersLijst" 
+        Height="800" 
+        MinWidth="1000" 
+        Width="1200" 
+        Loaded="Window_Loaded">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
 
-        <DataGrid x:Name="dataGebruikers" AutoGenerateColumns="true"></DataGrid>
+        <StackPanel Orientation="Horizontal" 
+                    Margin="10" 
+                    Grid.ColumnSpan="2">
+            
+        <Label Content="ZOEKEN:" 
+               Margin="0 5">
+            
+        </Label>
+            
+        <TextBox
+            x:Name="txtZoekOpdracht"
+            VerticalAlignment="Top"
+            Height="35"
+            Width="200"
+            TextWrapping="Wrap"
+            VerticalScrollBarVisibility="Auto"
+            Grid.Column="0" 
+            Grid.Row="0"
+            BorderThickness="2" />
+            
+            <Button x:Name="btnZoekOpdrachtVoornaam" 
+                    Content="Zoek op voornaam" 
+                    Margin="5 0 0 0" 
+                    Click="btnZoekOpdrachtVoornaam_Click">
+                
+            </Button>
+            
+            <Button x:Name="btnZoekOpdrachtAchternaam" 
+                    Content="Zoek op achternaam" 
+                    Margin="5 0 0 0" 
+                    Click="btnZoekOpdrachtAchternaam_Click">
+                
+            </Button>
+            
+            <Button x:Name="btnZoekOpdrachtEmail" 
+                    Content="Zoek op email" 
+                    Margin="5 0 0 0" 
+                    Click="btnZoekOpdrachtEmail_Click">
+                
+            </Button>
+            
+            <Button x:Name="btnVernieuwen"
+                    ToolTip="Vernieuw Gebruikerslijst" 
+                    Margin="5 0 0 0" 
+                    Click="btnVernieuwen_Click">
+                <materialDesign:PackIcon Kind="ArrowRotateLeft"
+                                         Height="24"
+                                         Width="24" />
+            </Button>
+            
+        </StackPanel>
+
+        <Grid Width="auto" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <DataGrid x:Name="dataGebruikers" AutoGenerateColumns="false" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding voornaam}" 
+                                        Header="Voornaam">
+                        
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding naam}" 
+                                        Header="Achternaam">
+                        
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding email}" 
+                                        Header="E-mail">
+                        
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding geslacht}" 
+                                        Header="Geslacht">
+                        
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding beroep}" 
+                                        Header="Beroep">
+                        
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding homepage}" 
+                                        Header="Website">
+                        
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </Window>

@@ -29,5 +29,67 @@ namespace DehouwerDein_a2._1_DM_Project
         {
             dataGebruikers.ItemsSource = DatabaseOperations.OphalenGebruikers();
         }
+
+        private void btnZoekOpdrachtVoornaam_Click(object sender, RoutedEventArgs e)
+        {
+            string foutmelding = Valideer("txtZoekOpdracht");
+
+            if (string.IsNullOrWhiteSpace(foutmelding))
+            {
+                dataGebruikers.ItemsSource = DatabaseOperations.ZoekenGebruikersMetVoornaam(txtZoekOpdracht.Text);
+                Wissen();
+            }
+            else
+            {
+                MessageBox.Show(foutmelding);
+            }
+        }
+
+        private void btnZoekOpdrachtAchternaam_Click(object sender, RoutedEventArgs e)
+        {
+            string foutmelding = Valideer("txtZoekOpdracht");
+
+            if (string.IsNullOrWhiteSpace(foutmelding))
+            {
+                dataGebruikers.ItemsSource = DatabaseOperations.ZoekenGebruikersMetAchternaam(txtZoekOpdracht.Text);
+                Wissen();
+            }
+            else
+            {
+                MessageBox.Show(foutmelding);
+            }
+        }
+
+        private void btnZoekOpdrachtEmail_Click(object sender, RoutedEventArgs e)
+        {
+            string foutmelding = Valideer("txtZoekOpdracht");
+
+            if (string.IsNullOrWhiteSpace(foutmelding))
+            {
+                dataGebruikers.ItemsSource = DatabaseOperations.ZoekenGebruikersMetEmail(txtZoekOpdracht.Text);
+                Wissen();
+            }
+            else
+            {
+                MessageBox.Show(foutmelding);
+            }
+        }
+
+        private void Wissen()
+        {
+            txtZoekOpdracht.Text = "";
+        }
+
+        private string Valideer(string columnName)
+        {
+            return columnName == "txtZoekOpdracht" && string.IsNullOrWhiteSpace(txtZoekOpdracht.Text)
+                ? "Zoekopdracht mag niet leeg zijn!" + Environment.NewLine
+                : "";
+        }
+
+        private void btnVernieuwen_Click(object sender, RoutedEventArgs e)
+        {
+            dataGebruikers.ItemsSource = DatabaseOperations.OphalenGebruikers();
+        }
     }
 }

@@ -78,6 +78,40 @@ namespace DehouwerDein_a2._1_DM_Project.DAL
             }
         }
 
+        // Filteropdrachten
+        public static List<Gebruiker> ZoekenGebruikersMetVoornaam(string zoekopdracht)
+        {
+            using (NieuwsEntities entities = new NieuwsEntities())
+            {
+                var query = entities.Gebruikers
+                     .Where(x => x.voornaam == zoekopdracht)
+                     .OrderBy(y => y.voornaam);
+                return query.ToList();
+            }
+        }
+
+        public static List<Gebruiker> ZoekenGebruikersMetAchternaam(string zoekopdracht)
+        {
+            using (NieuwsEntities entities = new NieuwsEntities())
+            {
+                var query = entities.Gebruikers
+                     .Where(x => x.naam == zoekopdracht)
+                     .OrderBy(y => y.naam);
+                return query.ToList();
+            }
+        }
+
+        public static List<Gebruiker> ZoekenGebruikersMetEmail(string zoekopdracht)
+        {
+            using (NieuwsEntities entities = new NieuwsEntities())
+            {
+                var query = entities.Gebruikers
+                     .Where(x => x.email == zoekopdracht)
+                     .OrderBy(y => y.email);
+                return query.ToList();
+            }
+        }
+
         // Creëeropdrachten
 
         public static int ToevoegenArtikel(NieuwsArtikel nieuwsArtikel)

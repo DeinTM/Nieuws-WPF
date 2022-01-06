@@ -59,69 +59,69 @@
                               Margin="100" 
                               Grid.ColumnSpan="2">
 
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
                             <UniformGrid Columns="2" 
                                          ClipToBounds="False" />
                         </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
+                    </ItemsControl.ItemsPanel>
 
-            <ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemTemplate>
 
-                <DataTemplate>
+                        <DataTemplate>
 
-                    <DataTemplate.Resources>
+                            <DataTemplate.Resources>
 
-                        <Style TargetType="TextBlock">
-                            <Setter Property="FontSize" 
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="FontSize" 
                             Value="18"/>
-                        </Style>
-                    </DataTemplate.Resources>
+                                </Style>
+                            </DataTemplate.Resources>
 
-                    <materialDesign:Card Width="300" 
+                            <materialDesign:Card Width="300" 
                                          Margin="30">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="140" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="auto" />
-                            </Grid.RowDefinitions>
-                            <Image
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="140" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
+                                    <Image
                                   Source="{Binding cover}"
                                   Height="140"
                                   Stretch="UniformToFill" />
-                            <StackPanel Grid.Row="1" Margin="8 24 8 0">
-                                <TextBlock FontWeight="Bold" 
+                                    <StackPanel Grid.Row="1" Margin="8 24 8 0">
+                                        <TextBlock FontWeight="Bold" 
                                            Text="{Binding titel}"
                                            >
 
-                                </TextBlock>
-                                    <TextBlock TextWrapping="Wrap" 
+                                        </TextBlock>
+                                        <TextBlock TextWrapping="Wrap" 
                                         VerticalAlignment="Center"
                                         Text="{Binding samenvatting}">
-                                    </TextBlock>
-                            </StackPanel>
-                            <StackPanel HorizontalAlignment="Right"
+                                        </TextBlock>
+                                    </StackPanel>
+                                    <StackPanel HorizontalAlignment="Right"
                                         Grid.Row="2"
                                         Orientation="Horizontal"
                                         Margin="8">
-                                <Button Style="{StaticResource MaterialDesignToolButton}"
+                                        <Button Style="{StaticResource MaterialDesignToolButton}"
                                         Width="30"
                                         Padding="2 0 2 0"
                                         materialDesign:RippleAssist.IsCentered="True"/>
 
-                            </StackPanel>
+                                    </StackPanel>
                                     <Button x:Name="btnLeesMeer"
                                             Style="{StaticResource MaterialDesignOutlinedButton}"
                                             Tag="{Binding id}"  
                                             Margin="8,0,174,16" 
                                             Grid.Row="2" 
                                             Click="btnLeesMeer_Click">
-                                        
+
                                         LEES MEER
-                                        
+
                                     </Button>
-                            
+
                                     <materialDesign:PackIcon Name="btnBewerken" 
                                                              Tag="{Binding id}" 
                                                              Foreground="DeepSkyBlue" 
@@ -133,43 +133,21 @@
                                                              Width="23" 
                                                              MouseDown="btnBewerken_MouseDown" 
                                                              Cursor="Hand" />
-                            
+
                                     <materialDesign:Chip x:Name="chipCategorie" 
                                                          Content="{Binding Categorie.naam}"  
                                                          Margin="201,120,0,0" Grid.Row="1"  
                                                          RenderTransformOrigin="1.552,0.581" 
                                                          Grid.RowSpan="2"
                                                          Cursor="Arrow"/>
-                        </Grid>
-                    </materialDesign:Card>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-
-        </ItemsControl>
-    </ScrollViewer>
-</DockPanel>
-
-
-        <!--<DataGrid x:Name="nieuwsArtikelDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="177,54,-277,26.8" Grid.RowSpan="3" RowDetailsVisibilityMode="VisibleWhenSelected">
-            <DataGrid.Columns>
-                <DataGridTextColumn x:Name="idColumn" Binding="{Binding id}" Header="id" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="titelColumn" Binding="{Binding titel}" Header="titel" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="categorieIdColumn" Binding="{Binding categorieId}" Header="categorie Id" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="artikelColumn" Binding="{Binding artikel}" Header="artikel" Width="SizeToHeader"/>
-                <DataGridTemplateColumn x:Name="aangemaaktOpColumn" Header="aangemaakt Op" Width="SizeToHeader">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <DatePicker SelectedDate="{Binding aangemaaktOp, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                </Grid>
+                            </materialDesign:Card>
                         </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn x:Name="samenvattingColumn" Binding="{Binding samenvatting}" Header="samenvatting" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="coverColumn" Binding="{Binding cover}" Header="cover" Width="SizeToHeader"/>
-                <DataGridCheckBoxColumn x:Name="plusArtikelColumn" Binding="{Binding plusArtikel}" Header="plus Artikel" Width="SizeToHeader"/>
+                    </ItemsControl.ItemTemplate>
 
-            </DataGrid.Columns>
-        </DataGrid>-->
-
+                </ItemsControl>
+            </ScrollViewer>
+        </DockPanel>
 
         <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
         <Button x:Name="btnNieuwArtikel"

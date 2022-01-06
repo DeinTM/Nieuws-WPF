@@ -11,7 +11,12 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
-        Title="Artikel" Height="1500" Width="800" Loaded="Window_Loaded">
+        Title="Artikel" 
+        Height="1500" 
+        Width="800"
+        MinHeight="1200"
+        MinWidth="800"
+        Loaded="Window_Loaded">
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -25,59 +30,61 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         
-        <materialDesign:Card
-  Width="700" Margin="50" Grid.Row="1">
+        <materialDesign:Card Width="700" 
+                             Margin="50" 
+                             Grid.Row="1">
+            
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition
-        Height="140" />
-                    <RowDefinition
-        Height="*" />
-                    <RowDefinition
-        Height="50" />
+                    <RowDefinition Height="140" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
-                <Image
-                    x:Name="Afbeelding"
-      Source="{Binding Path=ImageSource}"
-      Height="250"
-      
-      Stretch="UniformToFill" />
-                <StackPanel
-      Grid.Row="1"
-      Margin="8 24 8 0">
+                
+                <Image x:Name="Afbeelding"
+                       Source="{Binding Path=ImageSource}"
+                       Height="250"
+                       Stretch="UniformToFill" />
+                
+                <StackPanel Grid.Row="1"
+                            Margin="8 24 8 0">
                     
-                    <TextBlock
-        FontWeight="Bold" x:Name="Titel">
+                    <TextBlock FontWeight="Bold" 
+                               x:Name="Titel">
       
                     </TextBlock>
-                    <TextBlock
-        TextWrapping="Wrap"
-        VerticalAlignment="Center" x:Name="Artikel">
+                    
+                    <TextBlock TextWrapping="Wrap"
+                               VerticalAlignment="Center" 
+                               x:Name="Artikel">
       
                     </TextBlock>
+                    
                 </StackPanel>
-                <StackPanel
-      HorizontalAlignment="Right"
-      Grid.Row="2"
-      Orientation="Horizontal"
-      Margin="8">
-                    <Button
-        Style="{StaticResource MaterialDesignToolButton}"
-        Width="30"
-        Padding="2 0 2 0"
-        materialDesign:RippleAssist.IsCentered="True"/>
-                    <Button
-        Style="{StaticResource MaterialDesignToolButton}"
-        Width="30"
-        Padding="2 0 2 0"
-        materialDesign:RippleAssist.IsCentered="True">
+                <StackPanel HorizontalAlignment="Right"
+                            Grid.Row="2"
+                            Orientation="Horizontal"
+                            Margin="8">
+                    
+                    <Button Style="{StaticResource MaterialDesignToolButton}"
+                            Width="30"
+                            Padding="2 0 2 0"
+                            materialDesign:RippleAssist.IsCentered="True"/>
+                    
+                    <Button Style="{StaticResource MaterialDesignToolButton}"
+                            Width="30"
+                            Padding="2 0 2 0"
+                            materialDesign:RippleAssist.IsCentered="True">
+                        
                         <materialDesign:PackIcon Kind="Pencil"
                                                  Tag="{Binding ArtikelId}"
                                                  ToolTip="Bewerk dit artikel"
                                                  Cursor="Hand"
                                                  x:Name="btnBewerken"
                                                  MouseDown="btnBewerken_MouseDown"/>
+                        
                     </Button>
+                    
                 </StackPanel>
             </Grid>
         </materialDesign:Card>
@@ -91,6 +98,7 @@
                FontWeight="Bold">
             
         </Label>
+        
         <ItemsControl Grid.IsSharedSizeScope="True" 
                       Grid.Row="3"
                       x:Name="icReactieOverzicht"
@@ -104,42 +112,44 @@
                             BorderBrush="{DynamicResource MaterialDesignDivider}">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition
-              SharedSizeGroup="Checkerz" />
+                                <ColumnDefinition SharedSizeGroup="Checkerz" />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <Ellipse Width="50" Height="50">
+                            <Ellipse Width="50" 
+                                     Height="50">
+                                
                                 <Ellipse.Fill>
                                     <ImageBrush ImageSource="{Binding Gebruiker.avatar}" />
                                 </Ellipse.Fill>
+                                
                             </Ellipse>
-                            <StackPanel
-            Margin="8 0 0 0"
-            Grid.Column="1">
+                            <StackPanel Margin="8 0 0 0"
+                                        Grid.Column="1">
+                                
                                 <StackPanel Orientation="Horizontal">
-                                <TextBlock
-              FontWeight="Bold"
-              Text="{Binding Gebruiker.naam}"
-                                    Margin="0 0 5 0"/>
                                     
-                                <TextBlock
-              FontWeight="Bold"
-              Text="{Binding Gebruiker.voornaam}" />
+                                <TextBlock FontWeight="Bold"
+                                           Text="{Binding Gebruiker.naam}"
+                                           Margin="0 0 5 0"/>
+                                    
+                                <TextBlock FontWeight="Bold"
+                                           Text="{Binding Gebruiker.voornaam}" />
+                                    
                                 </StackPanel>
 
-                                <TextBlock
-              Text="{Binding reactie1}" />
+                                <TextBlock Text="{Binding reactie1}" />
+                                
                             </StackPanel>
                         </Grid>
                     </Border>
                     <DataTemplate.Triggers>
-                        <DataTrigger
-          Binding="{Binding IsSelected}"
-          Value="True">
-                            <Setter
-            TargetName="Border"
-            Property="Background"
-            Value="{DynamicResource MaterialDesignSelection}" />
+                        <DataTrigger Binding="{Binding IsSelected}"
+                                     Value="True">
+                            
+                            <Setter TargetName="Border"
+                                    Property="Background"
+                                    Value="{DynamicResource MaterialDesignSelection}" />
+                            
                         </DataTrigger>
                     </DataTemplate.Triggers>
                 </DataTemplate>
