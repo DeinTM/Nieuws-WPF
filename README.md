@@ -23,5 +23,6 @@ Er kan ook een gebruikerslijst worden ingeladen, waar men zoekopdrachten op kan 
 1. Voer het **database.sql** uit in SSMS
 2. Zorg dat de connectiestring overeenkomt met uw database in het bestand **App.config**
 
-# Applicatie Issues
-- Applicatie is traag omdat afbeeldingen niet geoptimaliseerd zijn
+# Opdracht
+Er is licht afgeweken van het design gezien de moeilijkheidsgraad van mijn uitwerking.
+Mijn planning is niet gelopen zoals gepland, echter heb ik wel de deadline gehaald om het project klaar te hebben.
